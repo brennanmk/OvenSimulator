@@ -1,0 +1,28 @@
+module finalProject(input [3:0] in, input pushButton, clk, output [0:6] Hex0, Hex2, Hex3, Hex4, Hex5);
+	wire clock;
+	reg[24:0] secondCount = 0;
+	reg[24:0] minuteCount = 0;
+	reg[24:0] hourCount = 0;
+
+
+	New_Clk clock1(clk, clock);
+	
+	always @ (posedge clock) begin //On positive edge clock (every 3 seconds) shift left
+		if(count < 60) begin //using 50 MHz clock (pin P11)
+				count = count + 1;
+		end else begin
+			count = 0;
+			minuteCount = minuteCount + 1;
+			sevenSeg Seg0(count, Hex0); //display in on HEX0 
+		end
+	end
+	
+	sevenSeg Seg0(in, Hex0); //display in on HEX0 
+	sevenSeg Seg1(Q1, Hex2); //display Q values on HEX2 - HEx5
+	sevenSeg Seg2(Q2, Hex3);
+	sevenSeg Seg3(Q3, Hex4);
+	sevenSeg Seg4(Q4, Hex5);
+
+	
+
+endmodule

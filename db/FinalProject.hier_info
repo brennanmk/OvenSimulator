@@ -1,0 +1,137 @@
+|FinalProject
+in[0] => ~NO_FANOUT~
+in[1] => ~NO_FANOUT~
+in[2] => ~NO_FANOUT~
+in[3] => ~NO_FANOUT~
+pushButton => ~NO_FANOUT~
+clk => clk.IN1
+Hex0[6] <= sevenSeg:Seg0.port1
+Hex0[5] <= sevenSeg:Seg0.port1
+Hex0[4] <= sevenSeg:Seg0.port1
+Hex0[3] <= sevenSeg:Seg0.port1
+Hex0[2] <= sevenSeg:Seg0.port1
+Hex0[1] <= sevenSeg:Seg0.port1
+Hex0[0] <= sevenSeg:Seg0.port1
+Hex1[6] <= sevenSeg:Seg1.port1
+Hex1[5] <= sevenSeg:Seg1.port1
+Hex1[4] <= sevenSeg:Seg1.port1
+Hex1[3] <= sevenSeg:Seg1.port1
+Hex1[2] <= sevenSeg:Seg1.port1
+Hex1[1] <= sevenSeg:Seg1.port1
+Hex1[0] <= sevenSeg:Seg1.port1
+Hex2[6] <= sevenSeg:Seg2.port1
+Hex2[5] <= sevenSeg:Seg2.port1
+Hex2[4] <= sevenSeg:Seg2.port1
+Hex2[3] <= sevenSeg:Seg2.port1
+Hex2[2] <= sevenSeg:Seg2.port1
+Hex2[1] <= sevenSeg:Seg2.port1
+Hex2[0] <= sevenSeg:Seg2.port1
+Hex3[6] <= sevenSeg:Seg3.port1
+Hex3[5] <= sevenSeg:Seg3.port1
+Hex3[4] <= sevenSeg:Seg3.port1
+Hex3[3] <= sevenSeg:Seg3.port1
+Hex3[2] <= sevenSeg:Seg3.port1
+Hex3[1] <= sevenSeg:Seg3.port1
+Hex3[0] <= sevenSeg:Seg3.port1
+Hex4[6] <= <GND>
+Hex4[5] <= <GND>
+Hex4[4] <= <GND>
+Hex4[3] <= <GND>
+Hex4[2] <= <GND>
+Hex4[1] <= <GND>
+Hex4[0] <= <GND>
+Hex5[6] <= <GND>
+Hex5[5] <= <GND>
+Hex5[4] <= <GND>
+Hex5[3] <= <GND>
+Hex5[2] <= <GND>
+Hex5[1] <= <GND>
+Hex5[0] <= <GND>
+
+
+|FinalProject|secondsClock:clock1
+clk => new_clk~reg0.CLK
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+clk => count[5].CLK
+clk => count[6].CLK
+clk => count[7].CLK
+clk => count[8].CLK
+clk => count[9].CLK
+clk => count[10].CLK
+clk => count[11].CLK
+clk => count[12].CLK
+clk => count[13].CLK
+clk => count[14].CLK
+clk => count[15].CLK
+clk => count[16].CLK
+clk => count[17].CLK
+clk => count[18].CLK
+clk => count[19].CLK
+clk => count[20].CLK
+clk => count[21].CLK
+clk => count[22].CLK
+clk => count[23].CLK
+clk => count[24].CLK
+new_clk <= new_clk~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FinalProject|sevenSeg:Seg0
+A[0] => Decoder0.IN3
+A[1] => Decoder0.IN2
+A[2] => Decoder0.IN1
+A[3] => Decoder0.IN0
+Seg[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+Seg[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+Seg[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+Seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+Seg[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+Seg[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+Seg[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FinalProject|sevenSeg:Seg1
+A[0] => Decoder0.IN3
+A[1] => Decoder0.IN2
+A[2] => Decoder0.IN1
+A[3] => Decoder0.IN0
+Seg[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+Seg[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+Seg[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+Seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+Seg[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+Seg[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+Seg[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FinalProject|sevenSeg:Seg2
+A[0] => Decoder0.IN3
+A[1] => Decoder0.IN2
+A[2] => Decoder0.IN1
+A[3] => Decoder0.IN0
+Seg[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+Seg[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+Seg[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+Seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+Seg[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+Seg[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+Seg[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FinalProject|sevenSeg:Seg3
+A[0] => Decoder0.IN3
+A[1] => Decoder0.IN2
+A[2] => Decoder0.IN1
+A[3] => Decoder0.IN0
+Seg[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+Seg[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+Seg[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+Seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+Seg[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+Seg[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+Seg[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
