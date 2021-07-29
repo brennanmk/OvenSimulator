@@ -1,0 +1,11 @@
+module compareTemp(input inputTemp, currentTemp, output reg heatChange);
+	reg[24:0] count = 0;
+	
+	always @(inputTemp) begin	
+			if(inputTemp < currentTemp) begin //using 50 MHz clock (pin P11)
+				heatChange = 1
+			end else begin
+				heatChange = 0
+			end
+	end
+endmodule

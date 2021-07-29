@@ -1,8 +1,9 @@
 vendor_name = ModelSim
-source_file = 1, Z:/Advanced Digital Circuit Design/Final Project/secondsClock.v
-source_file = 1, Z:/Advanced Digital Circuit Design/Final Project/FinalProject.v
-source_file = 1, Z:/Advanced Digital Circuit Design/Final Project/sevenSeg.v
-source_file = 1, Z:/Advanced Digital Circuit Design/Final Project/db/FinalProject.cbx.xml
+source_file = 1, E:/Advanced Digital Circuit Design/Final Project/secondsClock.v
+source_file = 1, E:/Advanced Digital Circuit Design/Final Project/FinalProject.v
+source_file = 1, E:/Advanced Digital Circuit Design/Final Project/sevenSeg.v
+source_file = 1, E:/Advanced Digital Circuit Design/Final Project/compareTemp.v
+source_file = 1, E:/Advanced Digital Circuit Design/Final Project/db/FinalProject.cbx.xml
 design_name = FinalProject
 instance = comp, \~QUARTUS_CREATED_GND~I , ~QUARTUS_CREATED_GND~I, FinalProject, 1
 instance = comp, \Hex0[6]~output , Hex0[6]~output, FinalProject, 1
