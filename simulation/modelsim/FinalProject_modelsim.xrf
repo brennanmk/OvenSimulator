@@ -54,6 +54,7 @@ instance = comp, \in[2]~input , in[2]~input, FinalProject, 1
 instance = comp, \in[3]~input , in[3]~input, FinalProject, 1
 instance = comp, \pushButton~input , pushButton~input, FinalProject, 1
 instance = comp, \clk~input , clk~input, FinalProject, 1
+instance = comp, \onOff~input , onOff~input, FinalProject, 1
 instance = comp, \~QUARTUS_CREATED_UNVM~ , ~QUARTUS_CREATED_UNVM~, FinalProject, 1
 instance = comp, \~QUARTUS_CREATED_ADC1~ , ~QUARTUS_CREATED_ADC1~, FinalProject, 1
 instance = comp, \~QUARTUS_CREATED_ADC2~ , ~QUARTUS_CREATED_ADC2~, FinalProject, 1

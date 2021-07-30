@@ -5,6 +5,7 @@ in[2] => ~NO_FANOUT~
 in[3] => ~NO_FANOUT~
 pushButton => ~NO_FANOUT~
 clk => clk.IN1
+onOff => ~NO_FANOUT~
 Hex0[6] <= sevenSeg:Seg0.port1
 Hex0[5] <= sevenSeg:Seg0.port1
 Hex0[4] <= sevenSeg:Seg0.port1
