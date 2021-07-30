@@ -13,39 +13,32 @@ module FinalProject(input [3:0] in, input pushButton, clk, output [0:6] Hex0, He
 	secondsClock clock1(clk, clock);
 	
 	always @ (posedge clock) begin 
-		if(secondCount < 60) begin //Count to 60 seconds
-				secondCount = secondCount + 1; //Add to second counter
-		end else begin
-			secondCount = 0; //Reset second counter
+		if(minuteCountVal2 == 6) begin //Reset min counter when 60
+			minuteCountVal1 = 0;
+			minuteCountVal2 = 0;
 			
-			if(minuteCountVal2 == 6) begin //Reset min counter when 60
-				minuteCountVal1 = 0;
-				minuteCountVal2 = 0;
-				
-				if(hourCountVal1 == 4 && hourCountVal2 == 2) begin //Reset hour counter when 24
+			if(hourCountVal1 == 4 && hourCountVal2 == 2) begin //Reset hour counter when 24
+				hourCountVal1 = 0;
+				hourCountVal2 = 0;
+
+			end else begin //Add to hour counter
+				if(hourCountVal1 == 9) begin
+					hourCountVal2 = hourCountVal2 + 1;
 					hourCountVal1 = 0;
-					hourCountVal2 = 0;
-
-				end else begin //Add to hour counter
-					if(hourCountVal1 == 9) begin
-						hourCountVal2 = hourCountVal2 + 1;
-						hourCountVal1 = 0;
-					end else begin
-						hourCountVal1 = hourCountVal1 + 1;
-					end
-
-				end
-
-			end else begin //Add to minute counter
-				if(minuteCountVal1 == 9) begin
-					minuteCountVal1 = 0;
-					minuteCountVal2 = minuteCountVal2 + 1;
 				end else begin
-					minuteCountVal1 = minuteCountVal1 + 1;
+					hourCountVal1 = hourCountVal1 + 1;
 				end
 
 			end
-					end
+
+			if(minuteCountVal1 == 9) begin
+				minuteCountVal1 = 0;
+				minuteCountVal2 = minuteCountVal2 + 1;
+			end else begin
+				minuteCountVal1 = minuteCountVal1 + 1;
+			end
+
+		end
 	end
 	
 	sevenSeg Seg0(minuteCounterVal1, Hex0); //display minutes LSB
