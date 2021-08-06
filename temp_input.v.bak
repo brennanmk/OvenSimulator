@@ -1,0 +1,3 @@
+module temp_input(input [1:0] btn, [2:0], output reg [9:0] temp);
+	
+endmodule 

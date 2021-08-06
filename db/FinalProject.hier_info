@@ -5,7 +5,7 @@ in[2] => ~NO_FANOUT~
 in[3] => ~NO_FANOUT~
 pushButton => ~NO_FANOUT~
 clk => clk.IN1
-onOff => ~NO_FANOUT~
+onOff => onOff.IN1
 Hex0[6] <= sevenSeg:Seg0.port1
 Hex0[5] <= sevenSeg:Seg0.port1
 Hex0[4] <= sevenSeg:Seg0.port1
@@ -50,7 +50,43 @@ Hex5[1] <= <GND>
 Hex5[0] <= <GND>
 
 
-|FinalProject|secondsClock:clock1
+|FinalProject|ovenClock:ovenClk
+clk => clk.IN1
+onOff => hourCountVal2[2]~reg0.ENA
+onOff => hourCountVal2[1]~reg0.ENA
+onOff => hourCountVal2[0]~reg0.ENA
+onOff => hourCountVal2[3]~reg0.ENA
+onOff => hourCountVal1[0]~reg0.ENA
+onOff => hourCountVal1[1]~reg0.ENA
+onOff => hourCountVal1[2]~reg0.ENA
+onOff => hourCountVal1[3]~reg0.ENA
+onOff => minuteCountVal2[0]~reg0.ENA
+onOff => minuteCountVal2[1]~reg0.ENA
+onOff => minuteCountVal2[2]~reg0.ENA
+onOff => minuteCountVal2[3]~reg0.ENA
+onOff => minuteCountVal1[0]~reg0.ENA
+onOff => minuteCountVal1[1]~reg0.ENA
+onOff => minuteCountVal1[2]~reg0.ENA
+onOff => minuteCountVal1[3]~reg0.ENA
+minuteCountVal1[0] <= minuteCountVal1[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minuteCountVal1[1] <= minuteCountVal1[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minuteCountVal1[2] <= minuteCountVal1[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minuteCountVal1[3] <= minuteCountVal1[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minuteCountVal2[0] <= minuteCountVal2[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minuteCountVal2[1] <= minuteCountVal2[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minuteCountVal2[2] <= minuteCountVal2[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minuteCountVal2[3] <= minuteCountVal2[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hourCountVal1[0] <= hourCountVal1[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hourCountVal1[1] <= hourCountVal1[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hourCountVal1[2] <= hourCountVal1[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hourCountVal1[3] <= hourCountVal1[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hourCountVal2[0] <= hourCountVal2[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hourCountVal2[1] <= hourCountVal2[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hourCountVal2[2] <= hourCountVal2[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hourCountVal2[3] <= hourCountVal2[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FinalProject|ovenClock:ovenClk|secondsClock:clock1
 clk => new_clk~reg0.CLK
 clk => count[0].CLK
 clk => count[1].CLK

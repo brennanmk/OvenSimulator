@@ -33,4 +33,4 @@ module dayCounter(input [3:0] in, input pushButton, clk, output [0:6] Hex0, Hex1
 	sevenSeg Seg1(hourCounter, Hex2, Hex3); //display hours
 	
 
-endmodule
+endmodule 
