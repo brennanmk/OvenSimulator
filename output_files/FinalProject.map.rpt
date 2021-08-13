@@ -1,6 +1,6 @@
 Analysis & Synthesis report for FinalProject
-Fri Jul 30 11:59:19 2021
-Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Fri Aug 06 12:04:19 2021
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -10,16 +10,27 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Port Connectivity Checks: "sevenSeg:Seg3"
+ 10. Port Connectivity Checks: "sevenSeg:Seg2"
+ 11. Port Connectivity Checks: "sevenSeg:Seg1"
+ 12. Port Connectivity Checks: "sevenSeg:Seg0"
+ 13. Port Connectivity Checks: "ovenClock:ovenClk"
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2020  Intel Corporation. All rights reserved.
+Copyright (C) 2018  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and any partner logic 
+and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -29,30 +40,29 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+refer to the applicable agreement for further details.
 
 
 
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Fri Jul 30 11:59:19 2021           ;
-; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Fri Aug 06 12:04:19 2021       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; FinalProject                                ;
 ; Top-level Entity Name              ; FinalProject                                ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
-; UFM blocks                         ; N/A until Partition Merge                   ;
-; ADC blocks                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 49                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -147,8 +157,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 8           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -158,44 +168,247 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                      ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                        ; Library ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------+---------+
+; secondsClock.v                   ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/secondsClock.v ;         ;
+; FinalProject.v                   ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v ;         ;
+; sevenSeg.v                       ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/sevenSeg.v     ;         ;
+; ovenClock.v                      ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v    ;         ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 49    ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; in[0] ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 49    ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                 ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+--------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name  ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+--------------+--------------+
+; |FinalProject              ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 49   ; 0            ; 0          ; |FinalProject       ; FinalProject ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+--------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sevenSeg:Seg3"                                                                                                                           ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                   ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; A    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "A[3..1]" will be connected to GND. ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sevenSeg:Seg2"                                                                                                                           ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                   ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; A    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "A[3..1]" will be connected to GND. ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sevenSeg:Seg1"                                                                                                                           ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                   ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; A    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "A[3..1]" will be connected to GND. ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sevenSeg:Seg0"                                                                                                                           ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                   ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; A    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "A[3..1]" will be connected to GND. ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ovenClock:ovenClk"                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; minuteCountVal1 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; minuteCountVal2 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; hourCountVal1   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; hourCountVal2   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 49                          ;
+; cycloneiii_lcell_comb ; 2                           ;
+;     normal            ; 2                           ;
+;         0 data inputs ; 2                           ;
+;                       ;                             ;
+; Max LUT depth         ; 0.00                        ;
+; Average LUT depth     ; 0.00                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Jul 30 11:59:14 2021
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Fri Aug 06 12:04:09 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FinalProject -c FinalProject
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file secondsclock.v
-    Info (12023): Found entity 1: secondsClock File: E:/Advanced Digital Circuit Design/Final Project/secondsClock.v Line: 1
+    Info (12023): Found entity 1: secondsClock File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/secondsClock.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file finalproject.v
-    Info (12023): Found entity 1: FinalProject File: E:/Advanced Digital Circuit Design/Final Project/FinalProject.v Line: 1
+    Info (12023): Found entity 1: FinalProject File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file sevenseg.v
-    Info (12023): Found entity 1: sevenSeg File: E:/Advanced Digital Circuit Design/Final Project/sevenSeg.v Line: 3
+    Info (12023): Found entity 1: sevenSeg File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/sevenSeg.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file comparetemp.v
-    Info (12023): Found entity 1: compareTemp File: E:/Advanced Digital Circuit Design/Final Project/compareTemp.v Line: 1
+    Info (12023): Found entity 1: compareTemp File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/compareTemp.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file ovenclock.v
-    Info (12023): Found entity 1: ovenClock File: E:/Advanced Digital Circuit Design/Final Project/ovenClock.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at FinalProject.v(14): created implicit net for "minuteCounterVal1" File: E:/Advanced Digital Circuit Design/Final Project/FinalProject.v Line: 14
-Warning (10236): Verilog HDL Implicit Net warning at FinalProject.v(17): created implicit net for "hourCounterVal1" File: E:/Advanced Digital Circuit Design/Final Project/FinalProject.v Line: 17
-Warning (10236): Verilog HDL Implicit Net warning at FinalProject.v(18): created implicit net for "hourCounterVal2" File: E:/Advanced Digital Circuit Design/Final Project/FinalProject.v Line: 18
+    Info (12023): Found entity 1: ovenClock File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file temp_input.v
+    Info (12023): Found entity 1: temp_input File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at FinalProject.v(13): created implicit net for "minuteCounterVal1" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 13
+Warning (10236): Verilog HDL Implicit Net warning at FinalProject.v(16): created implicit net for "hourCounterVal1" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 16
+Warning (10236): Verilog HDL Implicit Net warning at FinalProject.v(17): created implicit net for "hourCounterVal2" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 17
 Info (12127): Elaborating entity "FinalProject" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at FinalProject.v(3): object "secondCount" assigned a value but never read File: E:/Advanced Digital Circuit Design/Final Project/FinalProject.v Line: 3
-Warning (10036): Verilog HDL or VHDL warning at FinalProject.v(5): object "minuteCountVal1" assigned a value but never read File: E:/Advanced Digital Circuit Design/Final Project/FinalProject.v Line: 5
-Warning (10036): Verilog HDL or VHDL warning at FinalProject.v(6): object "minuteCountVal2" assigned a value but never read File: E:/Advanced Digital Circuit Design/Final Project/FinalProject.v Line: 6
-Warning (10036): Verilog HDL or VHDL warning at FinalProject.v(8): object "hourCountVal1" assigned a value but never read File: E:/Advanced Digital Circuit Design/Final Project/FinalProject.v Line: 8
-Warning (10036): Verilog HDL or VHDL warning at FinalProject.v(9): object "hourCountVal2" assigned a value but never read File: E:/Advanced Digital Circuit Design/Final Project/FinalProject.v Line: 9
-Error (10663): Verilog HDL Port Connection error at FinalProject.v(11): output or inout port "minuteCountVal1" must be connected to a structural net expression File: E:/Advanced Digital Circuit Design/Final Project/FinalProject.v Line: 11
-Error (10663): Verilog HDL Port Connection error at FinalProject.v(11): output or inout port "minuteCountVal2" must be connected to a structural net expression File: E:/Advanced Digital Circuit Design/Final Project/FinalProject.v Line: 11
-Error (10663): Verilog HDL Port Connection error at FinalProject.v(11): output or inout port "hourCountVal1" must be connected to a structural net expression File: E:/Advanced Digital Circuit Design/Final Project/FinalProject.v Line: 11
-Error (10663): Verilog HDL Port Connection error at FinalProject.v(11): output or inout port "hourCountVal2" must be connected to a structural net expression File: E:/Advanced Digital Circuit Design/Final Project/FinalProject.v Line: 11
-Error (12153): Can't elaborate top-level user hierarchy
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 5 errors, 9 warnings
-    Error: Peak virtual memory: 4701 megabytes
-    Error: Processing ended: Fri Jul 30 11:59:19 2021
-    Error: Elapsed time: 00:00:05
-    Error: Total CPU time (on all processors): 00:00:14
+Warning (10034): Output port "Hex4" at FinalProject.v(1) has no driver File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+Warning (10034): Output port "Hex5" at FinalProject.v(1) has no driver File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+Info (12128): Elaborating entity "ovenClock" for hierarchy "ovenClock:ovenClk" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 10
+Warning (10036): Verilog HDL or VHDL warning at ovenClock.v(3): object "secondCount" assigned a value but never read File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 3
+Warning (10230): Verilog HDL assignment warning at ovenClock.v(22): truncated value with size 32 to match size of target (4) File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 22
+Warning (10230): Verilog HDL assignment warning at ovenClock.v(25): truncated value with size 32 to match size of target (4) File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 25
+Warning (10230): Verilog HDL assignment warning at ovenClock.v(34): truncated value with size 32 to match size of target (4) File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 34
+Info (12128): Elaborating entity "secondsClock" for hierarchy "ovenClock:ovenClk|secondsClock:clock1" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 6
+Warning (10230): Verilog HDL assignment warning at secondsClock.v(6): truncated value with size 32 to match size of target (25) File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/secondsClock.v Line: 6
+Info (12128): Elaborating entity "sevenSeg" for hierarchy "sevenSeg:Seg0" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 13
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "minuteCounterVal1" is missing source, defaulting to GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 13
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "minuteCounterVal1" is missing source, defaulting to GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 13
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "Hex0[6]" is stuck at VCC File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex0[5]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex0[4]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex0[3]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex0[2]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex0[1]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex0[0]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex1[6]" is stuck at VCC File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex1[5]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex1[4]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex1[3]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex1[2]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex1[1]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex1[0]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex2[6]" is stuck at VCC File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex2[5]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex2[4]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex2[3]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex2[2]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex2[1]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex2[0]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex3[6]" is stuck at VCC File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex3[5]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex3[4]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex3[3]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex3[2]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex3[1]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex3[0]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex4[6]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex4[5]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex4[4]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex4[3]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex4[2]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex4[1]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex4[0]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex5[6]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex5[5]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex5[4]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex5[3]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex5[2]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex5[1]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex5[0]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 7 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "in[0]" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (15610): No output dependent on input pin "in[1]" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (15610): No output dependent on input pin "in[2]" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (15610): No output dependent on input pin "in[3]" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (15610): No output dependent on input pin "pushButton" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (15610): No output dependent on input pin "clk" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (15610): No output dependent on input pin "onOff" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+Info (21057): Implemented 49 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 42 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 67 warnings
+    Info: Peak virtual memory: 4733 megabytes
+    Info: Processing ended: Fri Aug 06 12:04:19 2021
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:22
 
 
