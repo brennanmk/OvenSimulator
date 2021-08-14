@@ -33,23 +33,8 @@ module sevenSeg(input [3:0]A, output reg [0:6] Seg);
 			9: begin
 				Seg = 7'b0000100;
 				end
-		  10: begin
-				Seg = 7'b0001000;
-				end
-		  11: begin
-				Seg = 7'b1100000;
-				end
-		  12: begin
-				Seg = 7'b0110001;
-				end
-		  13: begin
-				Seg = 7'b1000010;
-				end
-		  14: begin
-				Seg = 7'b0110000;
-				end
-		  15: begin
-				Seg = 7'b0111000;
+			default: begin
+				Seg = 7'b1111111;
 				end
 					
 		endcase

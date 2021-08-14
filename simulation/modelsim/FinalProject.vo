@@ -1,6 +1,6 @@
-// Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Copyright (C) 2018  Intel Corporation. All rights reserved.
 // Your use of Intel Corporation's design tools, logic functions 
-// and other software and tools, and any partner logic 
+// and other software and tools, and its AMPP partner logic 
 // functions, and any output files from any of the foregoing 
 // (including device programming or simulation files), and any 
 // associated documentation or information are expressly subject 
@@ -10,14 +10,13 @@
 // agreement, including, without limitation, that your use is for
 // the sole purpose of programming logic devices manufactured by
 // Intel and sold by Intel or its authorized distributors.  Please
-// refer to the applicable agreement for further details, at
-// https://fpgasoftware.intel.com/eula.
+// refer to the applicable agreement for further details.
 
 // VENDOR "Altera"
 // PROGRAM "Quartus Prime"
-// VERSION "Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
+// VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
 
-// DATE "08/13/2021 19:57:56"
+// DATE "08/13/2021 22:58:33"
 
 // 
 // Device: Altera 10M50DAF484C7G Package FBGA484
@@ -38,25 +37,26 @@ module FinalProject (
 	Hex1,
 	Hex2,
 	Hex3,
-	Hex4,
-	Hex5);
+	a,
+	timer);
 input 	[3:0] in;
-input 	pushButton;
+input 	[1:0] pushButton;
 input 	clk;
 input 	onOff;
 output 	[0:6] Hex0;
 output 	[0:6] Hex1;
 output 	[0:6] Hex2;
 output 	[0:6] Hex3;
-output 	[0:6] Hex4;
-output 	[0:6] Hex5;
+output 	[9:0] a;
+output 	[9:0] timer;
 
 // Design Ports Information
 // in[0]	=>  Location: PIN_A13,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // in[1]	=>  Location: PIN_A14,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // in[2]	=>  Location: PIN_B14,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // in[3]	=>  Location: PIN_F15,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// pushButton	=>  Location: PIN_A7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// pushButton[0]	=>  Location: PIN_B8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// pushButton[1]	=>  Location: PIN_A7,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // clk	=>  Location: PIN_P11,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // onOff	=>  Location: PIN_C10,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // Hex0[6]	=>  Location: PIN_C17,	 I/O Standard: 2.5 V,	 Current Strength: Default
@@ -87,20 +87,26 @@ output 	[0:6] Hex5;
 // Hex3[2]	=>  Location: PIN_E21,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // Hex3[1]	=>  Location: PIN_E22,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // Hex3[0]	=>  Location: PIN_F21,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Hex4[6]	=>  Location: PIN_F20,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Hex4[5]	=>  Location: PIN_F19,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Hex4[4]	=>  Location: PIN_H19,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Hex4[3]	=>  Location: PIN_J18,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Hex4[2]	=>  Location: PIN_E19,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Hex4[1]	=>  Location: PIN_E20,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Hex4[0]	=>  Location: PIN_F18,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Hex5[6]	=>  Location: PIN_N20,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Hex5[5]	=>  Location: PIN_N19,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Hex5[4]	=>  Location: PIN_M20,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Hex5[3]	=>  Location: PIN_N18,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Hex5[2]	=>  Location: PIN_L18,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Hex5[1]	=>  Location: PIN_K20,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Hex5[0]	=>  Location: PIN_J20,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// a[0]	=>  Location: PIN_W1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// a[1]	=>  Location: PIN_K4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// a[2]	=>  Location: PIN_K6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// a[3]	=>  Location: PIN_V11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// a[4]	=>  Location: PIN_F19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// a[5]	=>  Location: PIN_C2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// a[6]	=>  Location: PIN_H17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// a[7]	=>  Location: PIN_M22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// a[8]	=>  Location: PIN_E20,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// a[9]	=>  Location: PIN_C8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// timer[0]	=>  Location: PIN_P10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// timer[1]	=>  Location: PIN_P3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// timer[2]	=>  Location: PIN_J11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// timer[3]	=>  Location: PIN_E13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// timer[4]	=>  Location: PIN_G3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// timer[5]	=>  Location: PIN_W8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// timer[6]	=>  Location: PIN_A10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// timer[7]	=>  Location: PIN_B4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// timer[8]	=>  Location: PIN_AB11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// timer[9]	=>  Location: PIN_C21,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 wire gnd;
@@ -118,7 +124,8 @@ wire \in[0]~input_o ;
 wire \in[1]~input_o ;
 wire \in[2]~input_o ;
 wire \in[3]~input_o ;
-wire \pushButton~input_o ;
+wire \pushButton[0]~input_o ;
+wire \pushButton[1]~input_o ;
 wire \clk~input_o ;
 wire \onOff~input_o ;
 wire \~QUARTUS_CREATED_GND~I_combout ;
@@ -153,20 +160,26 @@ wire \Hex3[3]~output_o ;
 wire \Hex3[2]~output_o ;
 wire \Hex3[1]~output_o ;
 wire \Hex3[0]~output_o ;
-wire \Hex4[6]~output_o ;
-wire \Hex4[5]~output_o ;
-wire \Hex4[4]~output_o ;
-wire \Hex4[3]~output_o ;
-wire \Hex4[2]~output_o ;
-wire \Hex4[1]~output_o ;
-wire \Hex4[0]~output_o ;
-wire \Hex5[6]~output_o ;
-wire \Hex5[5]~output_o ;
-wire \Hex5[4]~output_o ;
-wire \Hex5[3]~output_o ;
-wire \Hex5[2]~output_o ;
-wire \Hex5[1]~output_o ;
-wire \Hex5[0]~output_o ;
+wire \a[0]~output_o ;
+wire \a[1]~output_o ;
+wire \a[2]~output_o ;
+wire \a[3]~output_o ;
+wire \a[4]~output_o ;
+wire \a[5]~output_o ;
+wire \a[6]~output_o ;
+wire \a[7]~output_o ;
+wire \a[8]~output_o ;
+wire \a[9]~output_o ;
+wire \timer[0]~output_o ;
+wire \timer[1]~output_o ;
+wire \timer[2]~output_o ;
+wire \timer[3]~output_o ;
+wire \timer[4]~output_o ;
+wire \timer[5]~output_o ;
+wire \timer[6]~output_o ;
+wire \timer[7]~output_o ;
+wire \timer[8]~output_o ;
+wire \timer[9]~output_o ;
 
 
 hard_block auto_generated_inst(
@@ -174,7 +187,7 @@ hard_block auto_generated_inst(
 	.devclrn(devclrn),
 	.devoe(devoe));
 
-// Location: LCCOMB_X1_Y1_N24
+// Location: LCCOMB_X44_Y52_N16
 fiftyfivenm_lcell_comb \~QUARTUS_CREATED_GND~I (
 // Equation(s):
 // \~QUARTUS_CREATED_GND~I_combout  = GND
@@ -555,186 +568,264 @@ defparam \Hex3[0]~output .bus_hold = "false";
 defparam \Hex3[0]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y35_N16
-fiftyfivenm_io_obuf \Hex4[6]~output (
+// Location: IOOBUF_X0_Y9_N2
+fiftyfivenm_io_obuf \a[0]~output (
 	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\Hex4[6]~output_o ),
+	.o(\a[0]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \Hex4[6]~output .bus_hold = "false";
-defparam \Hex4[6]~output .open_drain_output = "false";
+defparam \a[0]~output .bus_hold = "false";
+defparam \a[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X0_Y34_N2
+fiftyfivenm_io_obuf \a[1]~output (
+	.i(gnd),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\a[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \a[1]~output .bus_hold = "false";
+defparam \a[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X0_Y34_N23
+fiftyfivenm_io_obuf \a[2]~output (
+	.i(gnd),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\a[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \a[2]~output .bus_hold = "false";
+defparam \a[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X38_Y0_N30
+fiftyfivenm_io_obuf \a[3]~output (
+	.i(gnd),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\a[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \a[3]~output .bus_hold = "false";
+defparam \a[3]~output .open_drain_output = "false";
 // synopsys translate_on
 
 // Location: IOOBUF_X78_Y40_N9
-fiftyfivenm_io_obuf \Hex4[5]~output (
+fiftyfivenm_io_obuf \a[4]~output (
 	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\Hex4[5]~output_o ),
+	.o(\a[4]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \Hex4[5]~output .bus_hold = "false";
-defparam \Hex4[5]~output .open_drain_output = "false";
+defparam \a[4]~output .bus_hold = "false";
+defparam \a[4]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y45_N23
-fiftyfivenm_io_obuf \Hex4[4]~output (
+// Location: IOOBUF_X20_Y39_N16
+fiftyfivenm_io_obuf \a[5]~output (
 	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\Hex4[4]~output_o ),
+	.o(\a[5]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \Hex4[4]~output .bus_hold = "false";
-defparam \Hex4[4]~output .open_drain_output = "false";
+defparam \a[5]~output .bus_hold = "false";
+defparam \a[5]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y42_N16
-fiftyfivenm_io_obuf \Hex4[3]~output (
+// Location: IOOBUF_X78_Y49_N23
+fiftyfivenm_io_obuf \a[6]~output (
 	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\Hex4[3]~output_o ),
+	.o(\a[6]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \Hex4[3]~output .bus_hold = "false";
-defparam \Hex4[3]~output .open_drain_output = "false";
+defparam \a[6]~output .bus_hold = "false";
+defparam \a[6]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y40_N23
-fiftyfivenm_io_obuf \Hex4[2]~output (
+// Location: IOOBUF_X78_Y25_N2
+fiftyfivenm_io_obuf \a[7]~output (
 	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\Hex4[2]~output_o ),
+	.o(\a[7]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \Hex4[2]~output .bus_hold = "false";
-defparam \Hex4[2]~output .open_drain_output = "false";
+defparam \a[7]~output .bus_hold = "false";
+defparam \a[7]~output .open_drain_output = "false";
 // synopsys translate_on
 
 // Location: IOOBUF_X78_Y40_N2
-fiftyfivenm_io_obuf \Hex4[1]~output (
+fiftyfivenm_io_obuf \a[8]~output (
 	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\Hex4[1]~output_o ),
+	.o(\a[8]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \Hex4[1]~output .bus_hold = "false";
-defparam \Hex4[1]~output .open_drain_output = "false";
+defparam \a[8]~output .bus_hold = "false";
+defparam \a[8]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y40_N16
-fiftyfivenm_io_obuf \Hex4[0]~output (
+// Location: IOOBUF_X36_Y39_N30
+fiftyfivenm_io_obuf \a[9]~output (
 	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\Hex4[0]~output_o ),
+	.o(\a[9]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \Hex4[0]~output .bus_hold = "false";
-defparam \Hex4[0]~output .open_drain_output = "false";
+defparam \a[9]~output .bus_hold = "false";
+defparam \a[9]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y34_N2
-fiftyfivenm_io_obuf \Hex5[6]~output (
+// Location: IOOBUF_X26_Y0_N9
+fiftyfivenm_io_obuf \timer[0]~output (
 	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\Hex5[6]~output_o ),
+	.o(\timer[0]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \Hex5[6]~output .bus_hold = "false";
-defparam \Hex5[6]~output .open_drain_output = "false";
+defparam \timer[0]~output .bus_hold = "false";
+defparam \timer[0]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y34_N16
-fiftyfivenm_io_obuf \Hex5[5]~output (
+// Location: IOOBUF_X0_Y16_N16
+fiftyfivenm_io_obuf \timer[1]~output (
 	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\Hex5[5]~output_o ),
+	.o(\timer[1]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \Hex5[5]~output .bus_hold = "false";
-defparam \Hex5[5]~output .open_drain_output = "false";
+defparam \timer[1]~output .bus_hold = "false";
+defparam \timer[1]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y34_N9
-fiftyfivenm_io_obuf \Hex5[4]~output (
+// Location: IOOBUF_X49_Y54_N23
+fiftyfivenm_io_obuf \timer[2]~output (
 	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\Hex5[4]~output_o ),
+	.o(\timer[2]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \Hex5[4]~output .bus_hold = "false";
-defparam \Hex5[4]~output .open_drain_output = "false";
+defparam \timer[2]~output .bus_hold = "false";
+defparam \timer[2]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y34_N24
-fiftyfivenm_io_obuf \Hex5[3]~output (
+// Location: IOOBUF_X56_Y54_N16
+fiftyfivenm_io_obuf \timer[3]~output (
 	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\Hex5[3]~output_o ),
+	.o(\timer[3]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \Hex5[3]~output .bus_hold = "false";
-defparam \Hex5[3]~output .open_drain_output = "false";
+defparam \timer[3]~output .bus_hold = "false";
+defparam \timer[3]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y37_N16
-fiftyfivenm_io_obuf \Hex5[2]~output (
+// Location: IOOBUF_X0_Y35_N9
+fiftyfivenm_io_obuf \timer[4]~output (
 	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\Hex5[2]~output_o ),
+	.o(\timer[4]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \Hex5[2]~output .bus_hold = "false";
-defparam \Hex5[2]~output .open_drain_output = "false";
+defparam \timer[4]~output .bus_hold = "false";
+defparam \timer[4]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y42_N2
-fiftyfivenm_io_obuf \Hex5[1]~output (
+// Location: IOOBUF_X24_Y0_N2
+fiftyfivenm_io_obuf \timer[5]~output (
 	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\Hex5[1]~output_o ),
+	.o(\timer[5]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \Hex5[1]~output .bus_hold = "false";
-defparam \Hex5[1]~output .open_drain_output = "false";
+defparam \timer[5]~output .bus_hold = "false";
+defparam \timer[5]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y45_N9
-fiftyfivenm_io_obuf \Hex5[0]~output (
+// Location: IOOBUF_X51_Y54_N16
+fiftyfivenm_io_obuf \timer[6]~output (
 	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\Hex5[0]~output_o ),
+	.o(\timer[6]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \Hex5[0]~output .bus_hold = "false";
-defparam \Hex5[0]~output .open_drain_output = "false";
+defparam \timer[6]~output .bus_hold = "false";
+defparam \timer[6]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X26_Y39_N23
+fiftyfivenm_io_obuf \timer[7]~output (
+	.i(gnd),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\timer[7]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \timer[7]~output .bus_hold = "false";
+defparam \timer[7]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X38_Y0_N9
+fiftyfivenm_io_obuf \timer[8]~output (
+	.i(gnd),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\timer[8]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \timer[8]~output .bus_hold = "false";
+defparam \timer[8]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X78_Y36_N2
+fiftyfivenm_io_obuf \timer[9]~output (
+	.i(gnd),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\timer[9]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \timer[9]~output .bus_hold = "false";
+defparam \timer[9]~output .open_drain_output = "false";
 // synopsys translate_on
 
 // Location: IOIBUF_X54_Y54_N15
@@ -785,16 +876,28 @@ defparam \in[3]~input .listen_to_nsleep_signal = "false";
 defparam \in[3]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X49_Y54_N29
-fiftyfivenm_io_ibuf \pushButton~input (
-	.i(pushButton),
+// Location: IOIBUF_X46_Y54_N29
+fiftyfivenm_io_ibuf \pushButton[0]~input (
+	.i(pushButton[0]),
 	.ibar(gnd),
 	.nsleep(vcc),
-	.o(\pushButton~input_o ));
+	.o(\pushButton[0]~input_o ));
 // synopsys translate_off
-defparam \pushButton~input .bus_hold = "false";
-defparam \pushButton~input .listen_to_nsleep_signal = "false";
-defparam \pushButton~input .simulate_z_as = "z";
+defparam \pushButton[0]~input .bus_hold = "false";
+defparam \pushButton[0]~input .listen_to_nsleep_signal = "false";
+defparam \pushButton[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X49_Y54_N29
+fiftyfivenm_io_ibuf \pushButton[1]~input (
+	.i(pushButton[1]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\pushButton[1]~input_o ));
+// synopsys translate_off
+defparam \pushButton[1]~input .bus_hold = "false";
+defparam \pushButton[1]~input .listen_to_nsleep_signal = "false";
+defparam \pushButton[1]~input .simulate_z_as = "z";
 // synopsys translate_on
 
 // Location: IOIBUF_X34_Y0_N29
@@ -844,9 +947,7 @@ fiftyfivenm_unvm \~QUARTUS_CREATED_UNVM~ (
 // synopsys translate_off
 defparam \~QUARTUS_CREATED_UNVM~ .addr_range1_end_addr = -1;
 defparam \~QUARTUS_CREATED_UNVM~ .addr_range1_offset = -1;
-defparam \~QUARTUS_CREATED_UNVM~ .addr_range2_end_addr = -1;
 defparam \~QUARTUS_CREATED_UNVM~ .addr_range2_offset = -1;
-defparam \~QUARTUS_CREATED_UNVM~ .addr_range3_offset = -1;
 defparam \~QUARTUS_CREATED_UNVM~ .is_compressed_image = "false";
 defparam \~QUARTUS_CREATED_UNVM~ .is_dual_boot = "false";
 defparam \~QUARTUS_CREATED_UNVM~ .is_eram_skip = "false";
@@ -960,33 +1061,45 @@ assign Hex3[1] = \Hex3[1]~output_o ;
 
 assign Hex3[0] = \Hex3[0]~output_o ;
 
-assign Hex4[6] = \Hex4[6]~output_o ;
+assign a[0] = \a[0]~output_o ;
 
-assign Hex4[5] = \Hex4[5]~output_o ;
+assign a[1] = \a[1]~output_o ;
 
-assign Hex4[4] = \Hex4[4]~output_o ;
+assign a[2] = \a[2]~output_o ;
 
-assign Hex4[3] = \Hex4[3]~output_o ;
+assign a[3] = \a[3]~output_o ;
 
-assign Hex4[2] = \Hex4[2]~output_o ;
+assign a[4] = \a[4]~output_o ;
 
-assign Hex4[1] = \Hex4[1]~output_o ;
+assign a[5] = \a[5]~output_o ;
 
-assign Hex4[0] = \Hex4[0]~output_o ;
+assign a[6] = \a[6]~output_o ;
 
-assign Hex5[6] = \Hex5[6]~output_o ;
+assign a[7] = \a[7]~output_o ;
 
-assign Hex5[5] = \Hex5[5]~output_o ;
+assign a[8] = \a[8]~output_o ;
 
-assign Hex5[4] = \Hex5[4]~output_o ;
+assign a[9] = \a[9]~output_o ;
 
-assign Hex5[3] = \Hex5[3]~output_o ;
+assign timer[0] = \timer[0]~output_o ;
 
-assign Hex5[2] = \Hex5[2]~output_o ;
+assign timer[1] = \timer[1]~output_o ;
 
-assign Hex5[1] = \Hex5[1]~output_o ;
+assign timer[2] = \timer[2]~output_o ;
 
-assign Hex5[0] = \Hex5[0]~output_o ;
+assign timer[3] = \timer[3]~output_o ;
+
+assign timer[4] = \timer[4]~output_o ;
+
+assign timer[5] = \timer[5]~output_o ;
+
+assign timer[6] = \timer[6]~output_o ;
+
+assign timer[7] = \timer[7]~output_o ;
+
+assign timer[8] = \timer[8]~output_o ;
+
+assign timer[9] = \timer[9]~output_o ;
 
 endmodule
 

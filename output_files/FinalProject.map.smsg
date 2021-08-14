@@ -1,1 +1,3 @@
-Warning (10268): Verilog HDL information at temp_input.v(17): always construct contains both blocking and non-blocking assignments File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 17
+Info (10281): Verilog HDL Declaration information at temp_input.v(1): object "Hex0" differs only in case from object "hex0" in the same scope File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 1
+Info (10281): Verilog HDL Declaration information at temp_input.v(1): object "Hex1" differs only in case from object "hex1" in the same scope File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 1
+Info (10281): Verilog HDL Declaration information at temp_input.v(1): object "Hex2" differs only in case from object "hex2" in the same scope File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 1
