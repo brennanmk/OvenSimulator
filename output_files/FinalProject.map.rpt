@@ -1,6 +1,6 @@
 Analysis & Synthesis report for FinalProject
-Fri Aug 13 22:58:13 2021
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Sat Aug 14 15:41:16 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
 ---------------------
@@ -13,25 +13,34 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Port Connectivity Checks: "sevenSeg:Seg3"
- 10. Port Connectivity Checks: "sevenSeg:Seg2"
- 11. Port Connectivity Checks: "sevenSeg:Seg1"
- 12. Port Connectivity Checks: "sevenSeg:Seg0"
- 13. Port Connectivity Checks: "ovenClock:ovenClk"
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
- 17. Analysis & Synthesis Suppressed Messages
+  8. State Machine - |FinalProject|bakingState:bake|timerComplete
+  9. State Machine - |FinalProject|temp_input:tmp_in|state
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for Inferred Entity Instance: bakingState:bake|lpm_divide:Mod0
+ 15. Parameter Settings for Inferred Entity Instance: bakingState:bake|lpm_divide:Div0
+ 16. Parameter Settings for Inferred Entity Instance: bakingState:bake|lpm_divide:Mod1
+ 17. Parameter Settings for Inferred Entity Instance: bakingState:bake|lpm_divide:Div1
+ 18. Parameter Settings for Inferred Entity Instance: bakingState:bake|lpm_divide:Mod2
+ 19. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 20. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult1
+ 21. lpm_mult Parameter Settings by Entity Instance
+ 22. Port Connectivity Checks: "ovenClock:ovenClk"
+ 23. Post-Synthesis Netlist Statistics for Top Partition
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
+ 26. Analysis & Synthesis Suppressed Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2018  Intel Corporation. All rights reserved.
+Copyright (C) 2020  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -41,23 +50,24 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details.
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 
 
 
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Aug 13 22:58:13 2021       ;
-; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Sat Aug 14 15:41:16 2021       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; FinalProject                                ;
 ; Top-level Entity Name              ; FinalProject                                ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 0                                           ;
-;     Total combinational functions  ; 0                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 56                                          ;
+; Total logic elements               ; 586                                         ;
+;     Total combinational functions  ; 583                                         ;
+;     Dedicated logic registers      ; 135                                         ;
+; Total registers                    ; 135                                         ;
+; Total pins                         ; 50                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -158,68 +168,261 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                      ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                        ; Library ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------+---------+
-; secondsClock.v                   ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/secondsClock.v ;         ;
-; FinalProject.v                   ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v ;         ;
-; sevenSeg.v                       ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/sevenSeg.v     ;         ;
-; ovenClock.v                      ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v    ;         ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                    ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
+; secondsClock.v                   ; yes             ; User Verilog HDL File        ; E:/Advanced Digital Circuit Design/OvenSimulator/secondsClock.v             ;         ;
+; FinalProject.v                   ; yes             ; User Verilog HDL File        ; E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v             ;         ;
+; sevenSeg.v                       ; yes             ; User Verilog HDL File        ; E:/Advanced Digital Circuit Design/OvenSimulator/sevenSeg.v                 ;         ;
+; ovenClock.v                      ; yes             ; User Verilog HDL File        ; E:/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v                ;         ;
+; temp_input.v                     ; yes             ; User Verilog HDL File        ; E:/Advanced Digital Circuit Design/OvenSimulator/temp_input.v               ;         ;
+; bakingState.v                    ; yes             ; User Verilog HDL File        ; E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v              ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf       ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc      ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc  ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc       ;         ;
+; db/lpm_divide_lll.tdf            ; yes             ; Auto-Generated Megafunction  ; E:/Advanced Digital Circuit Design/OvenSimulator/db/lpm_divide_lll.tdf      ;         ;
+; db/sign_div_unsign_klh.tdf       ; yes             ; Auto-Generated Megafunction  ; E:/Advanced Digital Circuit Design/OvenSimulator/db/sign_div_unsign_klh.tdf ;         ;
+; db/alt_u_div_ihe.tdf             ; yes             ; Auto-Generated Megafunction  ; E:/Advanced Digital Circuit Design/OvenSimulator/db/alt_u_div_ihe.tdf       ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; E:/Advanced Digital Circuit Design/OvenSimulator/db/add_sub_t3c.tdf         ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; E:/Advanced Digital Circuit Design/OvenSimulator/db/add_sub_u3c.tdf         ;         ;
+; db/lpm_divide_itl.tdf            ; yes             ; Auto-Generated Megafunction  ; E:/Advanced Digital Circuit Design/OvenSimulator/db/lpm_divide_itl.tdf      ;         ;
+; db/lpm_divide_ltl.tdf            ; yes             ; Auto-Generated Megafunction  ; E:/Advanced Digital Circuit Design/OvenSimulator/db/lpm_divide_ltl.tdf      ;         ;
+; db/sign_div_unsign_nlh.tdf       ; yes             ; Auto-Generated Megafunction  ; E:/Advanced Digital Circuit Design/OvenSimulator/db/sign_div_unsign_nlh.tdf ;         ;
+; db/alt_u_div_ohe.tdf             ; yes             ; Auto-Generated Megafunction  ; E:/Advanced Digital Circuit Design/OvenSimulator/db/alt_u_div_ohe.tdf       ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf         ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_add_sub.inc      ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.inc         ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/bypassff.inc         ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altshift.inc         ;         ;
+; multcore.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.tdf         ;         ;
+; csa_add.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/csa_add.inc          ;         ;
+; mpar_add.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mpar_add.inc         ;         ;
+; muleabz.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/muleabz.inc          ;         ;
+; mul_lfrg.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mul_lfrg.inc         ;         ;
+; mul_boothc.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mul_boothc.inc       ;         ;
+; alt_ded_mult.inc                 ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/alt_ded_mult.inc     ;         ;
+; alt_ded_mult_y.inc               ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/alt_ded_mult_y.inc   ;         ;
+; dffpipe.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/dffpipe.inc          ;         ;
+; mpar_add.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mpar_add.tdf         ;         ;
+; altshift.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altshift.tdf         ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-;                                             ;       ;
-; Total combinational functions               ; 0     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 56    ;
-;                                             ;       ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; in[0] ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 56    ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                               ;
++---------------------------------------------+-----------------------------+
+; Resource                                    ; Usage                       ;
++---------------------------------------------+-----------------------------+
+; Estimated Total logic elements              ; 586                         ;
+;                                             ;                             ;
+; Total combinational functions               ; 583                         ;
+; Logic element usage by number of LUT inputs ;                             ;
+;     -- 4 input functions                    ; 124                         ;
+;     -- 3 input functions                    ; 186                         ;
+;     -- <=2 input functions                  ; 273                         ;
+;                                             ;                             ;
+; Logic elements by mode                      ;                             ;
+;     -- normal mode                          ; 377                         ;
+;     -- arithmetic mode                      ; 206                         ;
+;                                             ;                             ;
+; Total registers                             ; 135                         ;
+;     -- Dedicated logic registers            ; 135                         ;
+;     -- I/O registers                        ; 0                           ;
+;                                             ;                             ;
+; I/O pins                                    ; 50                          ;
+;                                             ;                             ;
+; Embedded Multiplier 9-bit elements          ; 0                           ;
+;                                             ;                             ;
+; Maximum fan-out node                        ; secondsClock:clock1|new_clk ;
+; Maximum fan-out                             ; 39                          ;
+; Total fan-out                               ; 2023                        ;
+; Average fan-out                             ; 2.47                        ;
++---------------------------------------------+-----------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                 ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+--------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name  ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+--------------+--------------+
-; |FinalProject              ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 56   ; 0            ; 0          ; |FinalProject       ; FinalProject ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+--------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                  ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                            ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |FinalProject                             ; 583 (71)            ; 135 (38)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 50   ; 0            ; 0          ; |FinalProject                                                                                                                  ; FinalProject        ; work         ;
+;    |bakingState:bake|                     ; 419 (92)            ; 59 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake                                                                                                 ; bakingState         ; work         ;
+;       |lpm_divide:Div0|                   ; 82 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_itl:auto_generated|  ; 82 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Div0|lpm_divide_itl:auto_generated                                                   ; lpm_divide_itl      ; work         ;
+;             |sign_div_unsign_klh:divider| ; 82 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Div0|lpm_divide_itl:auto_generated|sign_div_unsign_klh:divider                       ; sign_div_unsign_klh ; work         ;
+;                |alt_u_div_ihe:divider|    ; 82 (82)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Div0|lpm_divide_itl:auto_generated|sign_div_unsign_klh:divider|alt_u_div_ihe:divider ; alt_u_div_ihe       ; work         ;
+;       |lpm_divide:Div1|                   ; 69 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_ltl:auto_generated|  ; 69 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Div1|lpm_divide_ltl:auto_generated                                                   ; lpm_divide_ltl      ; work         ;
+;             |sign_div_unsign_nlh:divider| ; 69 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Div1|lpm_divide_ltl:auto_generated|sign_div_unsign_nlh:divider                       ; sign_div_unsign_nlh ; work         ;
+;                |alt_u_div_ohe:divider|    ; 69 (69)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Div1|lpm_divide_ltl:auto_generated|sign_div_unsign_nlh:divider|alt_u_div_ohe:divider ; alt_u_div_ohe       ; work         ;
+;       |lpm_divide:Mod0|                   ; 85 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_lll:auto_generated|  ; 85 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Mod0|lpm_divide_lll:auto_generated                                                   ; lpm_divide_lll      ; work         ;
+;             |sign_div_unsign_klh:divider| ; 85 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Mod0|lpm_divide_lll:auto_generated|sign_div_unsign_klh:divider                       ; sign_div_unsign_klh ; work         ;
+;                |alt_u_div_ihe:divider|    ; 85 (85)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Mod0|lpm_divide_lll:auto_generated|sign_div_unsign_klh:divider|alt_u_div_ihe:divider ; alt_u_div_ihe       ; work         ;
+;       |lpm_divide:Mod1|                   ; 49 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Mod1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_lll:auto_generated|  ; 49 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Mod1|lpm_divide_lll:auto_generated                                                   ; lpm_divide_lll      ; work         ;
+;             |sign_div_unsign_klh:divider| ; 49 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Mod1|lpm_divide_lll:auto_generated|sign_div_unsign_klh:divider                       ; sign_div_unsign_klh ; work         ;
+;                |alt_u_div_ihe:divider|    ; 49 (49)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Mod1|lpm_divide_lll:auto_generated|sign_div_unsign_klh:divider|alt_u_div_ihe:divider ; alt_u_div_ihe       ; work         ;
+;       |lpm_divide:Mod2|                   ; 10 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Mod2                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_lll:auto_generated|  ; 10 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Mod2|lpm_divide_lll:auto_generated                                                   ; lpm_divide_lll      ; work         ;
+;             |sign_div_unsign_klh:divider| ; 10 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Mod2|lpm_divide_lll:auto_generated|sign_div_unsign_klh:divider                       ; sign_div_unsign_klh ; work         ;
+;                |alt_u_div_ihe:divider|    ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Mod2|lpm_divide_lll:auto_generated|sign_div_unsign_klh:divider|alt_u_div_ihe:divider ; alt_u_div_ihe       ; work         ;
+;       |secondsClock:clock4|               ; 32 (32)             ; 26 (26)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|bakingState:bake|secondsClock:clock4                                                                             ; secondsClock        ; work         ;
+;    |lpm_mult:Mult0|                       ; 3 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|lpm_mult:Mult0                                                                                                   ; lpm_mult            ; work         ;
+;       |multcore:mult_core|                ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|lpm_mult:Mult0|multcore:mult_core                                                                                ; multcore            ; work         ;
+;    |lpm_mult:Mult1|                       ; 6 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|lpm_mult:Mult1                                                                                                   ; lpm_mult            ; work         ;
+;       |multcore:mult_core|                ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|lpm_mult:Mult1|multcore:mult_core                                                                                ; multcore            ; work         ;
+;    |ovenClock:ovenClk|                    ; 24 (23)             ; 17 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|ovenClock:ovenClk                                                                                                ; ovenClock           ; work         ;
+;       |secondsClock:clock1|               ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|ovenClock:ovenClk|secondsClock:clock1                                                                            ; secondsClock        ; work         ;
+;    |secondsClock:clock1|                  ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|secondsClock:clock1                                                                                              ; secondsClock        ; work         ;
+;    |sevenSeg:Seg0|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|sevenSeg:Seg0                                                                                                    ; sevenSeg            ; work         ;
+;    |sevenSeg:Seg1|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|sevenSeg:Seg1                                                                                                    ; sevenSeg            ; work         ;
+;    |sevenSeg:Seg2|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|sevenSeg:Seg2                                                                                                    ; sevenSeg            ; work         ;
+;    |sevenSeg:Seg3|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|sevenSeg:Seg3                                                                                                    ; sevenSeg            ; work         ;
+;    |temp_input:tmp_in|                    ; 31 (30)             ; 20 (19)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|temp_input:tmp_in                                                                                                ; temp_input          ; work         ;
+;       |secondsClock:clock2|               ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FinalProject|temp_input:tmp_in|secondsClock:clock2                                                                            ; secondsClock        ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------+
+; State Machine - |FinalProject|bakingState:bake|timerComplete ;
++------------------+-------------------------------------------+
+; Name             ; timerComplete.01                          ;
++------------------+-------------------------------------------+
+; timerComplete.00 ; 0                                         ;
+; timerComplete.01 ; 1                                         ;
++------------------+-------------------------------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------+
+; State Machine - |FinalProject|temp_input:tmp_in|state                                         ;
++-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+; Name      ; state.110 ; state.101 ; state.100 ; state.011 ; state.010 ; state.001 ; state.000 ;
++-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+; state.000 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ;
+; state.001 ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 1         ;
+; state.010 ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 1         ;
+; state.011 ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 1         ;
+; state.100 ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 1         ;
+; state.101 ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; state.110 ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
++-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                           ;
++-------------------------------------------------+------------------------------------------------------------+
+; Register name                                   ; Reason for Removal                                         ;
++-------------------------------------------------+------------------------------------------------------------+
+; hexVal4[3]                                      ; Merged with hexVal4[1]                                     ;
+; hexVal5[1,3]                                    ; Merged with hexVal4[1]                                     ;
+; hexVal4[2]                                      ; Merged with hexVal4[0]                                     ;
+; hexVal5[0,2]                                    ; Merged with hexVal4[0]                                     ;
+; ovenClock:ovenClk|secondsClock:clock1|count[24] ; Merged with bakingState:bake|secondsClock:clock4|count[24] ;
+; secondsClock:clock1|count[24]                   ; Merged with bakingState:bake|secondsClock:clock4|count[24] ;
+; temp_input:tmp_in|secondsClock:clock2|count[24] ; Merged with bakingState:bake|secondsClock:clock4|count[24] ;
+; ovenClock:ovenClk|secondsClock:clock1|count[23] ; Merged with bakingState:bake|secondsClock:clock4|count[23] ;
+; secondsClock:clock1|count[23]                   ; Merged with bakingState:bake|secondsClock:clock4|count[23] ;
+; temp_input:tmp_in|secondsClock:clock2|count[23] ; Merged with bakingState:bake|secondsClock:clock4|count[23] ;
+; ovenClock:ovenClk|secondsClock:clock1|count[22] ; Merged with bakingState:bake|secondsClock:clock4|count[22] ;
+; secondsClock:clock1|count[22]                   ; Merged with bakingState:bake|secondsClock:clock4|count[22] ;
+; temp_input:tmp_in|secondsClock:clock2|count[22] ; Merged with bakingState:bake|secondsClock:clock4|count[22] ;
+; ovenClock:ovenClk|secondsClock:clock1|count[21] ; Merged with bakingState:bake|secondsClock:clock4|count[21] ;
+; secondsClock:clock1|count[21]                   ; Merged with bakingState:bake|secondsClock:clock4|count[21] ;
+; temp_input:tmp_in|secondsClock:clock2|count[21] ; Merged with bakingState:bake|secondsClock:clock4|count[21] ;
+; ovenClock:ovenClk|secondsClock:clock1|count[20] ; Merged with bakingState:bake|secondsClock:clock4|count[20] ;
+; secondsClock:clock1|count[20]                   ; Merged with bakingState:bake|secondsClock:clock4|count[20] ;
+; temp_input:tmp_in|secondsClock:clock2|count[20] ; Merged with bakingState:bake|secondsClock:clock4|count[20] ;
+; ovenClock:ovenClk|secondsClock:clock1|count[19] ; Merged with bakingState:bake|secondsClock:clock4|count[19] ;
+; secondsClock:clock1|count[19]                   ; Merged with bakingState:bake|secondsClock:clock4|count[19] ;
+; temp_input:tmp_in|secondsClock:clock2|count[19] ; Merged with bakingState:bake|secondsClock:clock4|count[19] ;
+; ovenClock:ovenClk|secondsClock:clock1|count[18] ; Merged with bakingState:bake|secondsClock:clock4|count[18] ;
+; secondsClock:clock1|count[18]                   ; Merged with bakingState:bake|secondsClock:clock4|count[18] ;
+; temp_input:tmp_in|secondsClock:clock2|count[18] ; Merged with bakingState:bake|secondsClock:clock4|count[18] ;
+; ovenClock:ovenClk|secondsClock:clock1|count[17] ; Merged with bakingState:bake|secondsClock:clock4|count[17] ;
+; secondsClock:clock1|count[17]                   ; Merged with bakingState:bake|secondsClock:clock4|count[17] ;
+; temp_input:tmp_in|secondsClock:clock2|count[17] ; Merged with bakingState:bake|secondsClock:clock4|count[17] ;
+; ovenClock:ovenClk|secondsClock:clock1|count[16] ; Merged with bakingState:bake|secondsClock:clock4|count[16] ;
+; secondsClock:clock1|count[16]                   ; Merged with bakingState:bake|secondsClock:clock4|count[16] ;
+; temp_input:tmp_in|secondsClock:clock2|count[16] ; Merged with bakingState:bake|secondsClock:clock4|count[16] ;
+; ovenClock:ovenClk|secondsClock:clock1|count[15] ; Merged with bakingState:bake|secondsClock:clock4|count[15] ;
+; secondsClock:clock1|count[15]                   ; Merged with bakingState:bake|secondsClock:clock4|count[15] ;
+; temp_input:tmp_in|secondsClock:clock2|count[15] ; Merged with bakingState:bake|secondsClock:clock4|count[15] ;
+; ovenClock:ovenClk|secondsClock:clock1|count[14] ; Merged with bakingState:bake|secondsClock:clock4|count[14] ;
+; secondsClock:clock1|count[14]                   ; Merged with bakingState:bake|secondsClock:clock4|count[14] ;
+; temp_input:tmp_in|secondsClock:clock2|count[14] ; Merged with bakingState:bake|secondsClock:clock4|count[14] ;
+; ovenClock:ovenClk|secondsClock:clock1|count[13] ; Merged with bakingState:bake|secondsClock:clock4|count[13] ;
+; secondsClock:clock1|count[13]                   ; Merged with bakingState:bake|secondsClock:clock4|count[13] ;
+; temp_input:tmp_in|secondsClock:clock2|count[13] ; Merged with bakingState:bake|secondsClock:clock4|count[13] ;
+; ovenClock:ovenClk|secondsClock:clock1|count[12] ; Merged with bakingState:bake|secondsClock:clock4|count[12] ;
+; secondsClock:clock1|count[12]                   ; Merged with bakingState:bake|secondsClock:clock4|count[12] ;
+; temp_input:tmp_in|secondsClock:clock2|count[12] ; Merged with bakingState:bake|secondsClock:clock4|count[12] ;
+; ovenClock:ovenClk|secondsClock:clock1|count[11] ; Merged with bakingState:bake|secondsClock:clock4|count[11] ;
+; secondsClock:clock1|count[11]                   ; Merged with bakingState:bake|secondsClock:clock4|count[11] ;
+; temp_input:tmp_in|secondsClock:clock2|count[11] ; Merged with bakingState:bake|secondsClock:clock4|count[11] ;
+; ovenClock:ovenClk|secondsClock:clock1|count[10] ; Merged with bakingState:bake|secondsClock:clock4|count[10] ;
+; secondsClock:clock1|count[10]                   ; Merged with bakingState:bake|secondsClock:clock4|count[10] ;
+; temp_input:tmp_in|secondsClock:clock2|count[10] ; Merged with bakingState:bake|secondsClock:clock4|count[10] ;
+; ovenClock:ovenClk|secondsClock:clock1|count[9]  ; Merged with bakingState:bake|secondsClock:clock4|count[9]  ;
+; secondsClock:clock1|count[9]                    ; Merged with bakingState:bake|secondsClock:clock4|count[9]  ;
+; temp_input:tmp_in|secondsClock:clock2|count[9]  ; Merged with bakingState:bake|secondsClock:clock4|count[9]  ;
+; ovenClock:ovenClk|secondsClock:clock1|count[8]  ; Merged with bakingState:bake|secondsClock:clock4|count[8]  ;
+; secondsClock:clock1|count[8]                    ; Merged with bakingState:bake|secondsClock:clock4|count[8]  ;
+; temp_input:tmp_in|secondsClock:clock2|count[8]  ; Merged with bakingState:bake|secondsClock:clock4|count[8]  ;
+; ovenClock:ovenClk|secondsClock:clock1|count[7]  ; Merged with bakingState:bake|secondsClock:clock4|count[7]  ;
+; secondsClock:clock1|count[7]                    ; Merged with bakingState:bake|secondsClock:clock4|count[7]  ;
+; temp_input:tmp_in|secondsClock:clock2|count[7]  ; Merged with bakingState:bake|secondsClock:clock4|count[7]  ;
+; ovenClock:ovenClk|secondsClock:clock1|count[6]  ; Merged with bakingState:bake|secondsClock:clock4|count[6]  ;
+; secondsClock:clock1|count[6]                    ; Merged with bakingState:bake|secondsClock:clock4|count[6]  ;
+; temp_input:tmp_in|secondsClock:clock2|count[6]  ; Merged with bakingState:bake|secondsClock:clock4|count[6]  ;
+; ovenClock:ovenClk|secondsClock:clock1|count[5]  ; Merged with bakingState:bake|secondsClock:clock4|count[5]  ;
+; secondsClock:clock1|count[5]                    ; Merged with bakingState:bake|secondsClock:clock4|count[5]  ;
+; temp_input:tmp_in|secondsClock:clock2|count[5]  ; Merged with bakingState:bake|secondsClock:clock4|count[5]  ;
+; ovenClock:ovenClk|secondsClock:clock1|count[4]  ; Merged with bakingState:bake|secondsClock:clock4|count[4]  ;
+; secondsClock:clock1|count[4]                    ; Merged with bakingState:bake|secondsClock:clock4|count[4]  ;
+; temp_input:tmp_in|secondsClock:clock2|count[4]  ; Merged with bakingState:bake|secondsClock:clock4|count[4]  ;
+; ovenClock:ovenClk|secondsClock:clock1|count[3]  ; Merged with bakingState:bake|secondsClock:clock4|count[3]  ;
+; secondsClock:clock1|count[3]                    ; Merged with bakingState:bake|secondsClock:clock4|count[3]  ;
+; temp_input:tmp_in|secondsClock:clock2|count[3]  ; Merged with bakingState:bake|secondsClock:clock4|count[3]  ;
+; ovenClock:ovenClk|secondsClock:clock1|count[2]  ; Merged with bakingState:bake|secondsClock:clock4|count[2]  ;
+; secondsClock:clock1|count[2]                    ; Merged with bakingState:bake|secondsClock:clock4|count[2]  ;
+; temp_input:tmp_in|secondsClock:clock2|count[2]  ; Merged with bakingState:bake|secondsClock:clock4|count[2]  ;
+; ovenClock:ovenClk|secondsClock:clock1|count[1]  ; Merged with bakingState:bake|secondsClock:clock4|count[1]  ;
+; secondsClock:clock1|count[1]                    ; Merged with bakingState:bake|secondsClock:clock4|count[1]  ;
+; temp_input:tmp_in|secondsClock:clock2|count[1]  ; Merged with bakingState:bake|secondsClock:clock4|count[1]  ;
+; ovenClock:ovenClk|secondsClock:clock1|count[0]  ; Merged with bakingState:bake|secondsClock:clock4|count[0]  ;
+; secondsClock:clock1|count[0]                    ; Merged with bakingState:bake|secondsClock:clock4|count[0]  ;
+; temp_input:tmp_in|secondsClock:clock2|count[0]  ; Merged with bakingState:bake|secondsClock:clock4|count[0]  ;
+; hexVal4[0]                                      ; Stuck at GND due to stuck port data_in                     ;
+; hexVal4[1]                                      ; Stuck at VCC due to stuck port data_in                     ;
+; bakingState:bake|timerComplete~5                ; Lost fanout                                                ;
+; temp_input:tmp_in|state~9                       ; Lost fanout                                                ;
+; temp_input:tmp_in|state~10                      ; Lost fanout                                                ;
+; temp_input:tmp_in|state~11                      ; Lost fanout                                                ;
+; temp_input:tmp_in|hex0[3]                       ; Stuck at GND due to stuck port data_in                     ;
+; temp_input:tmp_in|hex1[3]                       ; Stuck at GND due to stuck port data_in                     ;
+; temp_input:tmp_in|hex2[3]                       ; Stuck at GND due to stuck port data_in                     ;
+; temp_input:tmp_in|hex3[3]                       ; Stuck at GND due to stuck port data_in                     ;
+; Total Number of Removed Registers = 91          ;                                                            ;
++-------------------------------------------------+------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -227,62 +430,268 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 135   ;
+; Number of registers using Synchronous Clear  ; 30    ;
+; Number of registers using Synchronous Load   ; 21    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 78    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "sevenSeg:Seg3"                                                                                                                           ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                   ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-; A    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "A[3..1]" will be connected to GND. ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; bakingState:bake|currentTemp[0]        ; 4       ;
+; bakingState:bake|currentTemp[6]        ; 17      ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "sevenSeg:Seg2"                                                                                                                           ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                   ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-; A    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "A[3..1]" will be connected to GND. ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |FinalProject|temp_input:tmp_in|hex0[2]       ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |FinalProject|temp_input:tmp_in|hex1[1]       ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |FinalProject|hexVal3[2]                      ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |FinalProject|hexVal0[3]                      ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |FinalProject|bakingState:bake|currentTemp[7] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |FinalProject|temp_input:tmp_in|hex2[0]       ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |FinalProject|temp_input:tmp_in|state         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "sevenSeg:Seg1"                                                                                                                           ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                   ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-; A    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "A[3..1]" will be connected to GND. ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bakingState:bake|lpm_divide:Mod0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_lll ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "sevenSeg:Seg0"                                                                                                                           ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                   ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-; A    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "A[3..1]" will be connected to GND. ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bakingState:bake|lpm_divide:Div0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_itl ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ovenClock:ovenClk"                                                                             ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port            ; Type   ; Severity ; Details                                                                             ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; minuteCountVal1 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; minuteCountVal2 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; hourCountVal1   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; hourCountVal2   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bakingState:bake|lpm_divide:Mod1 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_lll ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bakingState:bake|lpm_divide:Div1 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                 ;
+; LPM_WIDTHD             ; 7              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_ltl ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bakingState:bake|lpm_divide:Mod2 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_lll ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                 ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 4        ; Untyped             ;
+; LPM_WIDTHB                                     ; 7        ; Untyped             ;
+; LPM_WIDTHP                                     ; 11       ; Untyped             ;
+; LPM_WIDTHR                                     ; 11       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; YES      ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; NOTHING  ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult1                 ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 4        ; Untyped             ;
+; LPM_WIDTHB                                     ; 10       ; Untyped             ;
+; LPM_WIDTHP                                     ; 14       ; Untyped             ;
+; LPM_WIDTHR                                     ; 14       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; YES      ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 6        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; NOTHING  ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance         ;
++---------------------------------------+----------------+
+; Name                                  ; Value          ;
++---------------------------------------+----------------+
+; Number of entity instances            ; 2              ;
+; Entity Instance                       ; lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 4              ;
+;     -- LPM_WIDTHB                     ; 7              ;
+;     -- LPM_WIDTHP                     ; 11             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; YES            ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 4              ;
+;     -- LPM_WIDTHB                     ; 10             ;
+;     -- LPM_WIDTHP                     ; 14             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; YES            ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
++---------------------------------------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ovenClock:ovenClk"                                                                                       ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Hex0 ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; Hex1 ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; Hex2 ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; Hex3 ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -290,13 +699,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 56                          ;
-; cycloneiii_lcell_comb ; 2                           ;
-;     normal            ; 2                           ;
-;         0 data inputs ; 2                           ;
+; boundary_port         ; 50                          ;
+; cycloneiii_ff         ; 135                         ;
+;     ENA               ; 57                          ;
+;     ENA SCLR SLD      ; 5                           ;
+;     ENA SLD           ; 16                          ;
+;     SCLR              ; 25                          ;
+;     plain             ; 32                          ;
+; cycloneiii_lcell_comb ; 588                         ;
+;     arith             ; 206                         ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 73                          ;
+;         3 data inputs ; 131                         ;
+;     normal            ; 382                         ;
+;         0 data inputs ; 26                          ;
+;         1 data inputs ; 26                          ;
+;         2 data inputs ; 151                         ;
+;         3 data inputs ; 55                          ;
+;         4 data inputs ; 124                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 17.70                       ;
+; Average LUT depth     ; 8.22                        ;
 +-----------------------+-----------------------------+
 
 
@@ -314,117 +737,176 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Aug 13 22:58:00 2021
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Sat Aug 14 15:41:10 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FinalProject -c FinalProject
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file secondsclock.v
-    Info (12023): Found entity 1: secondsClock File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/secondsClock.v Line: 1
+    Info (12023): Found entity 1: secondsClock File: E:/Advanced Digital Circuit Design/OvenSimulator/secondsClock.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file finalproject.v
-    Info (12023): Found entity 1: FinalProject File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Info (12023): Found entity 1: FinalProject File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file sevenseg.v
-    Info (12023): Found entity 1: sevenSeg File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/sevenSeg.v Line: 3
+    Info (12023): Found entity 1: sevenSeg File: E:/Advanced Digital Circuit Design/OvenSimulator/sevenSeg.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file comparetemp.v
-    Info (12023): Found entity 1: compareTemp File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/compareTemp.v Line: 1
+    Info (12023): Found entity 1: compareTemp File: E:/Advanced Digital Circuit Design/OvenSimulator/compareTemp.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file ovenclock.v
-    Info (12023): Found entity 1: ovenClock File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 1
+    Info (12023): Found entity 1: ovenClock File: E:/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file temp_input.v
-    Info (12023): Found entity 1: temp_input File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at FinalProject.v(23): created implicit net for "minuteCounterVal1" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 23
-Warning (10236): Verilog HDL Implicit Net warning at FinalProject.v(24): created implicit net for "minuteCounterVal2" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 24
-Warning (10236): Verilog HDL Implicit Net warning at FinalProject.v(26): created implicit net for "hourCounterVal1" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 26
-Warning (10236): Verilog HDL Implicit Net warning at FinalProject.v(27): created implicit net for "hourCounterVal2" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 27
-Warning (10236): Verilog HDL Implicit Net warning at temp_input.v(70): created implicit net for "hex3" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 70
+    Info (12023): Found entity 1: temp_input File: E:/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file oventimer.v
+    Info (12023): Found entity 1: ovenTimer File: E:/Advanced Digital Circuit Design/OvenSimulator/ovenTimer.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bakingstate.v
+    Info (12023): Found entity 1: bakingState File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at FinalProject.v(8): created implicit net for "clock" File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 8
+Warning (10236): Verilog HDL Implicit Net warning at temp_input.v(11): created implicit net for "clock" File: E:/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 11
+Warning (10236): Verilog HDL Implicit Net warning at bakingState.v(8): created implicit net for "clock" File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 8
 Info (12127): Elaborating entity "FinalProject" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at FinalProject.v(5): object "current_state" assigned a value but never read File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 5
-Warning (10230): Verilog HDL assignment warning at FinalProject.v(5): truncated value with size 32 to match size of target (1) File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 5
-Warning (10034): Output port "a" at FinalProject.v(1) has no driver File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-Warning (10034): Output port "timer" at FinalProject.v(1) has no driver File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-Info (12128): Elaborating entity "ovenClock" for hierarchy "ovenClock:ovenClk" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 18
-Warning (10036): Verilog HDL or VHDL warning at ovenClock.v(3): object "secondCount" assigned a value but never read File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 3
-Warning (10230): Verilog HDL assignment warning at ovenClock.v(21): truncated value with size 32 to match size of target (4) File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 21
-Warning (10230): Verilog HDL assignment warning at ovenClock.v(24): truncated value with size 32 to match size of target (4) File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 24
-Warning (10230): Verilog HDL assignment warning at ovenClock.v(31): truncated value with size 32 to match size of target (4) File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 31
-Warning (10230): Verilog HDL assignment warning at ovenClock.v(33): truncated value with size 32 to match size of target (4) File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 33
-Info (12128): Elaborating entity "secondsClock" for hierarchy "ovenClock:ovenClk|secondsClock:clock1" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 6
-Warning (10230): Verilog HDL assignment warning at secondsClock.v(6): truncated value with size 32 to match size of target (25) File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/secondsClock.v Line: 6
-Info (12128): Elaborating entity "sevenSeg" for hierarchy "sevenSeg:Seg0" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 23
-Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (10230): Verilog HDL assignment warning at FinalProject.v(53): truncated value with size 32 to match size of target (10) File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 53
+Warning (10230): Verilog HDL assignment warning at FinalProject.v(67): truncated value with size 32 to match size of target (10) File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 67
+Info (12128): Elaborating entity "secondsClock" for hierarchy "secondsClock:clock1" File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 8
+Warning (10230): Verilog HDL assignment warning at secondsClock.v(6): truncated value with size 32 to match size of target (25) File: E:/Advanced Digital Circuit Design/OvenSimulator/secondsClock.v Line: 6
+Info (12128): Elaborating entity "ovenClock" for hierarchy "ovenClock:ovenClk" File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 15
+Warning (10036): Verilog HDL or VHDL warning at ovenClock.v(3): object "secondCount" assigned a value but never read File: E:/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 3
+Warning (10230): Verilog HDL assignment warning at ovenClock.v(22): truncated value with size 32 to match size of target (4) File: E:/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 22
+Warning (10230): Verilog HDL assignment warning at ovenClock.v(25): truncated value with size 32 to match size of target (4) File: E:/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 25
+Warning (10230): Verilog HDL assignment warning at ovenClock.v(28): truncated value with size 32 to match size of target (4) File: E:/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 28
+Warning (10230): Verilog HDL assignment warning at ovenClock.v(31): truncated value with size 32 to match size of target (4) File: E:/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 31
+Warning (10034): Output port "Hex0" at ovenClock.v(1) has no driver File: E:/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 1
+Warning (10034): Output port "Hex1" at ovenClock.v(1) has no driver File: E:/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 1
+Warning (10034): Output port "Hex2" at ovenClock.v(1) has no driver File: E:/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 1
+Warning (10034): Output port "Hex3" at ovenClock.v(1) has no driver File: E:/Advanced Digital Circuit Design/OvenSimulator/ovenClock.v Line: 1
+Info (12128): Elaborating entity "temp_input" for hierarchy "temp_input:tmp_in" File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 25
+Warning (10036): Verilog HDL or VHDL warning at temp_input.v(4): object "digit" assigned a value but never read File: E:/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 4
+Warning (10036): Verilog HDL or VHDL warning at temp_input.v(5): object "sw_value" assigned a value but never read File: E:/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 5
+Warning (10230): Verilog HDL assignment warning at temp_input.v(19): truncated value with size 32 to match size of target (4) File: E:/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 19
+Warning (10230): Verilog HDL assignment warning at temp_input.v(25): truncated value with size 32 to match size of target (4) File: E:/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 25
+Warning (10230): Verilog HDL assignment warning at temp_input.v(31): truncated value with size 32 to match size of target (4) File: E:/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 31
+Warning (10230): Verilog HDL assignment warning at temp_input.v(43): truncated value with size 32 to match size of target (4) File: E:/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 43
+Warning (10230): Verilog HDL assignment warning at temp_input.v(49): truncated value with size 32 to match size of target (4) File: E:/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 49
+Warning (10230): Verilog HDL assignment warning at temp_input.v(55): truncated value with size 32 to match size of target (4) File: E:/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 55
+Warning (10230): Verilog HDL assignment warning at temp_input.v(61): truncated value with size 32 to match size of target (4) File: E:/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 61
+Info (12128): Elaborating entity "bakingState" for hierarchy "bakingState:bake" File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 31
+Warning (10230): Verilog HDL assignment warning at bakingState.v(15): truncated value with size 32 to match size of target (10) File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 15
+Warning (10230): Verilog HDL assignment warning at bakingState.v(24): truncated value with size 32 to match size of target (10) File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 24
+Warning (10230): Verilog HDL assignment warning at bakingState.v(32): truncated value with size 32 to match size of target (10) File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 32
+Warning (10230): Verilog HDL assignment warning at bakingState.v(40): truncated value with size 32 to match size of target (4) File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 40
+Warning (10230): Verilog HDL assignment warning at bakingState.v(41): truncated value with size 32 to match size of target (4) File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 41
+Warning (10230): Verilog HDL assignment warning at bakingState.v(42): truncated value with size 32 to match size of target (4) File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 42
+Info (12128): Elaborating entity "sevenSeg" for hierarchy "sevenSeg:Seg0" File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 83
+Info (278001): Inferred 7 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bakingState:bake|Mod0" File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 40
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bakingState:bake|Div0" File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 41
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bakingState:bake|Mod1" File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 41
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bakingState:bake|Div1" File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 42
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bakingState:bake|Mod2" File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 42
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 53
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult1" File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 67
+Info (12130): Elaborated megafunction instantiation "bakingState:bake|lpm_divide:Mod0" File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 40
+Info (12133): Instantiated megafunction "bakingState:bake|lpm_divide:Mod0" with the following parameter: File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 40
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_lll.tdf
+    Info (12023): Found entity 1: lpm_divide_lll File: E:/Advanced Digital Circuit Design/OvenSimulator/db/lpm_divide_lll.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_klh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_klh File: E:/Advanced Digital Circuit Design/OvenSimulator/db/sign_div_unsign_klh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ihe.tdf
+    Info (12023): Found entity 1: alt_u_div_ihe File: E:/Advanced Digital Circuit Design/OvenSimulator/db/alt_u_div_ihe.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: E:/Advanced Digital Circuit Design/OvenSimulator/db/add_sub_t3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: E:/Advanced Digital Circuit Design/OvenSimulator/db/add_sub_u3c.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "bakingState:bake|lpm_divide:Div0" File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 41
+Info (12133): Instantiated megafunction "bakingState:bake|lpm_divide:Div0" with the following parameter: File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 41
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_itl.tdf
+    Info (12023): Found entity 1: lpm_divide_itl File: E:/Advanced Digital Circuit Design/OvenSimulator/db/lpm_divide_itl.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "bakingState:bake|lpm_divide:Div1" File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 42
+Info (12133): Instantiated megafunction "bakingState:bake|lpm_divide:Div1" with the following parameter: File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 42
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ltl.tdf
+    Info (12023): Found entity 1: lpm_divide_ltl File: E:/Advanced Digital Circuit Design/OvenSimulator/db/lpm_divide_ltl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_nlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_nlh File: E:/Advanced Digital Circuit Design/OvenSimulator/db/sign_div_unsign_nlh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ohe.tdf
+    Info (12023): Found entity 1: alt_u_div_ohe File: E:/Advanced Digital Circuit Design/OvenSimulator/db/alt_u_div_ohe.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0" File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 53
+Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter: File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 53
+    Info (12134): Parameter "LPM_WIDTHA" = "4"
+    Info (12134): Parameter "LPM_WIDTHB" = "7"
+    Info (12134): Parameter "LPM_WIDTHP" = "11"
+    Info (12134): Parameter "LPM_WIDTHR" = "11"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult0|multcore:mult_core", which is child of megafunction instantiation "lpm_mult:Mult0" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 309
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult0|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "lpm_mult:Mult0" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.tdf Line: 229
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "lpm_mult:Mult0" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 352
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult1" File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 67
+Info (12133): Instantiated megafunction "lpm_mult:Mult1" with the following parameter: File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 67
+    Info (12134): Parameter "LPM_WIDTHA" = "4"
+    Info (12134): Parameter "LPM_WIDTHB" = "10"
+    Info (12134): Parameter "LPM_WIDTHP" = "14"
+    Info (12134): Parameter "LPM_WIDTHR" = "14"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "6"
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult1|multcore:mult_core", which is child of megafunction instantiation "lpm_mult:Mult1" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 309
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult1|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "lpm_mult:Mult1" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.tdf Line: 229
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult1|altshift:external_latency_ffs", which is child of megafunction instantiation "lpm_mult:Mult1" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 352
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "Hex0[6]" is stuck at VCC File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex0[5]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex0[4]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex0[3]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex0[2]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex0[1]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex0[0]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex1[6]" is stuck at VCC File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex1[5]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex1[4]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex1[3]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex1[2]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex1[1]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex1[0]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex2[6]" is stuck at VCC File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex2[5]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex2[4]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex2[3]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex2[2]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex2[1]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex2[0]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex3[6]" is stuck at VCC File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex3[5]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex3[4]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex3[3]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex3[2]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex3[1]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "Hex3[0]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "a[0]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "a[1]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "a[2]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "a[3]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "a[4]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "a[5]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "a[6]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "a[7]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "a[8]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "a[9]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "timer[0]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "timer[1]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "timer[2]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "timer[3]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "timer[4]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "timer[5]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "timer[6]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "timer[7]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "timer[8]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (13410): Pin "timer[9]" is stuck at GND File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-Info (144001): Generated suppressed messages file C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/output_files/FinalProject.map.smsg
+    Warning (13410): Pin "Hex4[6]" is stuck at VCC File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex4[5]" is stuck at VCC File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex4[4]" is stuck at VCC File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex4[3]" is stuck at VCC File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex4[2]" is stuck at VCC File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex4[1]" is stuck at VCC File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex4[0]" is stuck at VCC File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex5[6]" is stuck at VCC File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex5[5]" is stuck at VCC File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex5[4]" is stuck at VCC File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex5[3]" is stuck at VCC File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex5[2]" is stuck at VCC File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex5[1]" is stuck at VCC File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+    Warning (13410): Pin "Hex5[0]" is stuck at VCC File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "bakingState:bake|lpm_divide:Mod1|lpm_divide_lll:auto_generated|sign_div_unsign_klh:divider|alt_u_div_ihe:divider|add_sub_6_result_int[0]~10" File: E:/Advanced Digital Circuit Design/OvenSimulator/db/alt_u_div_ihe.tdf Line: 57
+    Info (17048): Logic cell "bakingState:bake|lpm_divide:Mod1|lpm_divide_lll:auto_generated|sign_div_unsign_klh:divider|alt_u_div_ihe:divider|add_sub_8_result_int[0]~10" File: E:/Advanced Digital Circuit Design/OvenSimulator/db/alt_u_div_ihe.tdf Line: 67
+    Info (17048): Logic cell "bakingState:bake|lpm_divide:Mod2|lpm_divide_lll:auto_generated|sign_div_unsign_klh:divider|alt_u_div_ihe:divider|add_sub_9_result_int[0]~0" File: E:/Advanced Digital Circuit Design/OvenSimulator/db/alt_u_div_ihe.tdf Line: 72
+Info (144001): Generated suppressed messages file E:/Advanced Digital Circuit Design/OvenSimulator/output_files/FinalProject.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 8 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "in[0]" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (15610): No output dependent on input pin "in[1]" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (15610): No output dependent on input pin "in[2]" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (15610): No output dependent on input pin "in[3]" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (15610): No output dependent on input pin "pushButton[0]" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (15610): No output dependent on input pin "pushButton[1]" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (15610): No output dependent on input pin "clk" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-    Warning (15610): No output dependent on input pin "onOff" File: C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-Info (21057): Implemented 56 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "in[0]" File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
+Info (21057): Implemented 636 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
-    Info (21059): Implemented 48 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 75 warnings
-    Info: Peak virtual memory: 4734 megabytes
-    Info: Processing ended: Fri Aug 13 22:58:13 2021
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:28
+    Info (21059): Implemented 42 output pins
+    Info (21061): Implemented 586 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 49 warnings
+    Info: Peak virtual memory: 4815 megabytes
+    Info: Processing ended: Sat Aug 14 15:41:16 2021
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:14
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/intelFPGA_lite/18.1/Advanced Digital Circuit Design/OvenSimulator/output_files/FinalProject.map.smsg.
+The suppressed messages can be found in E:/Advanced Digital Circuit Design/OvenSimulator/output_files/FinalProject.map.smsg.
 
 

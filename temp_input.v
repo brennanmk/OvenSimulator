@@ -1,73 +1,67 @@
-module temp_input(input onOff, input [1:0] btn, input [2:0]sw, output reg [9:0] temp, output reg [9:0] timer, output [0:6] Hex0, Hex1, Hex2);
+module temp_input(input clk, onOff, input [1:0] btn, input [2:0]sw, output reg [3:0]hex0, hex1, hex2, hex3);
 	
-	
-	reg [3:0]hex0 = 3'b000;
-	reg [3:0]hex1 = 3'b000;
-	reg [3:0]hex2 = 3'b011;
+
 	reg digit = 0;
 	reg sw_value = 0;
+	reg [2:0]state = 0;
 	
+
+	
+	
+	secondsClock clock2(clk, clock);
+
 	//Add on off
-	always @(*) begin
-		if(onOff == 1) begin
-		// Switching between digit with Button 1
-			if(btn[1]) begin
-				if (digit == 2) begin
-					digit <= 0;
-				end else begin
-					digit <= digit + 1;
-				end
-			end
-
-			// Assign switches value to hex display
-			if(sw) begin 
-				if (digit == 0 ) begin
-					hex0 <= sw;
-				end else if (digit == 1) begin
-					hex1 <= sw;
-				end else begin
-					hex2 <= sw;
-				end
-			end
-
-
-			// return temperature when Button 0 is pressed
-			if(btn[0]) begin //GO TO TEMP INPUT
+	always @(posedge clock) begin
+	// Switching between digit with Button 1
+	//get temp
 			
-			// Assign switches value to hex display
-				if(sw) begin 
-					if (digit == 0 ) begin
-						hex0 <= sw;
-					end else if (digit == 1) begin
-						hex1 <= sw;
-					end else begin
-						hex2 <= sw;
-					end
-				end
-				
-				if(btn[0]) begin
-					temp <= hex2*100 + hex1*10 + hex0;
-					if (temp < 300) begin
-						hex2 <= 3'b011;
-						hex1 <= 3'b000;
-						hex0 <= 3'b000;
-						temp <= 	hex2*100 + hex1*10 + hex0;
-					end else if (temp > 500) begin
-						hex2 <= 3'b101;
-						hex1 <= 3'b000;
-						hex0 <= 3'b000;
-						temp <= hex2*100 + hex1*10 + hex0;
-					end
-				end	
-				
+		if (state == 0) begin
+			hex0 <= (sw[2] * 3) + (sw[1] * 2) + (sw[0] * 1); //set digit one
+			
+			if (btn[0] ==0 ) begin
+				state <= 1;
 			end
+		end else if (state == 1) begin
+			hex1 <= (sw[2] * 3) + (sw[1] * 2) + (sw[0] * 1); //set digit one
+			
+			if (btn[0] == 0) begin
+				state <= 2;
+			end
+		end else if (state == 2) begin
+			hex2 <= (sw[2] * 3) + (sw[1] * 2) + (sw[0] * 1); //set digit one
+			
+			if (btn[1] == 0) begin
+				hex3 <= 0;
+				hex2 <= 0; //reset displays
+				hex1 <= 0;
+				hex0 <= 0;
+
+				state <= 3;
+			end
+		end else if (state == 3) begin
+
+			hex0 <= (sw[2] * 3) + (sw[1] * 2) + (sw[0] * 1); //set digit one
+			
+			if (btn[0] == 0) begin
+				state <= 4;
+			end
+		end else if (state == 4) begin
+			hex1 <= (sw[2] * 3) + (sw[1] * 2) + (sw[0] * 1); //set digit two
+			
+			if (btn[0] == 0) begin
+				state <= 5;
+			end
+		end else if (state == 5) begin
+			hex2 <= (sw[2] * 3) + (sw[1] * 2) + (sw[0] * 1); //set digit three
+			
+			if (btn[0] == 0) begin
+				state <= 6;
+			end
+		end else if (state == 6) begin
+			hex3 <= (sw[2] * 3) + (sw[1] * 2) + (sw[0] * 1); //set digit four
+			
 		end
 	end
-	
-		
-	sevenSeg Seg0(hex0, Hex0); 
-	sevenSeg Seg1(hex1, Hex1); 
-	sevenSeg Seg2(hex3, Hex2); 
 	
 
 endmodule 

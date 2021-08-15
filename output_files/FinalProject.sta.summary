@@ -2,4 +2,184 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1200mV 85C Model Setup 'bakingState:bake|secondsClock:clock4|new_clk'
+Slack : -16.463
+TNS   : -242.370
+
+Type  : Slow 1200mV 85C Model Setup 'secondsClock:clock1|new_clk'
+Slack : -4.772
+TNS   : -88.291
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -3.407
+TNS   : -86.960
+
+Type  : Slow 1200mV 85C Model Setup 'ovenClock:ovenClk|secondsClock:clock1|new_clk'
+Slack : -2.142
+TNS   : -23.379
+
+Type  : Slow 1200mV 85C Model Setup 'temp_input:tmp_in|secondsClock:clock2|new_clk'
+Slack : -1.773
+TNS   : -22.392
+
+Type  : Slow 1200mV 85C Model Hold 'temp_input:tmp_in|secondsClock:clock2|new_clk'
+Slack : 0.347
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'bakingState:bake|secondsClock:clock4|new_clk'
+Slack : 0.348
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'secondsClock:clock1|new_clk'
+Slack : 0.349
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.407
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ovenClock:ovenClk|secondsClock:clock1|new_clk'
+Slack : 0.916
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -43.687
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'secondsClock:clock1|new_clk'
+Slack : -1.403
+TNS   : -53.314
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'bakingState:bake|secondsClock:clock4|new_clk'
+Slack : -1.403
+TNS   : -46.299
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'temp_input:tmp_in|secondsClock:clock2|new_clk'
+Slack : -1.403
+TNS   : -26.657
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ovenClock:ovenClk|secondsClock:clock1|new_clk'
+Slack : -1.403
+TNS   : -22.448
+
+Type  : Slow 1200mV 0C Model Setup 'bakingState:bake|secondsClock:clock4|new_clk'
+Slack : -14.919
+TNS   : -218.739
+
+Type  : Slow 1200mV 0C Model Setup 'secondsClock:clock1|new_clk'
+Slack : -4.252
+TNS   : -77.642
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -3.043
+TNS   : -77.471
+
+Type  : Slow 1200mV 0C Model Setup 'ovenClock:ovenClk|secondsClock:clock1|new_clk'
+Slack : -1.924
+TNS   : -20.444
+
+Type  : Slow 1200mV 0C Model Setup 'temp_input:tmp_in|secondsClock:clock2|new_clk'
+Slack : -1.582
+TNS   : -19.245
+
+Type  : Slow 1200mV 0C Model Hold 'temp_input:tmp_in|secondsClock:clock2|new_clk'
+Slack : 0.312
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'bakingState:bake|secondsClock:clock4|new_clk'
+Slack : 0.313
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'secondsClock:clock1|new_clk'
+Slack : 0.313
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.376
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ovenClock:ovenClk|secondsClock:clock1|new_clk'
+Slack : 0.834
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -43.687
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'secondsClock:clock1|new_clk'
+Slack : -1.403
+TNS   : -53.314
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'bakingState:bake|secondsClock:clock4|new_clk'
+Slack : -1.403
+TNS   : -46.299
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'temp_input:tmp_in|secondsClock:clock2|new_clk'
+Slack : -1.403
+TNS   : -26.657
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ovenClock:ovenClk|secondsClock:clock1|new_clk'
+Slack : -1.403
+TNS   : -22.448
+
+Type  : Fast 1200mV 0C Model Setup 'bakingState:bake|secondsClock:clock4|new_clk'
+Slack : -5.895
+TNS   : -80.942
+
+Type  : Fast 1200mV 0C Model Setup 'secondsClock:clock1|new_clk'
+Slack : -1.279
+TNS   : -15.549
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -0.866
+TNS   : -19.732
+
+Type  : Fast 1200mV 0C Model Setup 'ovenClock:ovenClk|secondsClock:clock1|new_clk'
+Slack : -0.328
+TNS   : -1.855
+
+Type  : Fast 1200mV 0C Model Setup 'temp_input:tmp_in|secondsClock:clock2|new_clk'
+Slack : -0.211
+TNS   : -1.208
+
+Type  : Fast 1200mV 0C Model Hold 'bakingState:bake|secondsClock:clock4|new_clk'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'temp_input:tmp_in|secondsClock:clock2|new_clk'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'secondsClock:clock1|new_clk'
+Slack : 0.153
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.162
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ovenClock:ovenClk|secondsClock:clock1|new_clk'
+Slack : 0.355
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -33.238
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'secondsClock:clock1|new_clk'
+Slack : -1.000
+TNS   : -38.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'bakingState:bake|secondsClock:clock4|new_clk'
+Slack : -1.000
+TNS   : -33.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'temp_input:tmp_in|secondsClock:clock2|new_clk'
+Slack : -1.000
+TNS   : -19.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ovenClock:ovenClk|secondsClock:clock1|new_clk'
+Slack : -1.000
+TNS   : -16.000
+
 ------------------------------------------------------------

@@ -33,6 +33,9 @@ module sevenSeg(input [3:0]A, output reg [0:6] Seg);
 			9: begin
 				Seg = 7'b0000100;
 				end
+			10: begin
+				Seg = 7'b1111111;
+				end
 			default: begin
 				Seg = 7'b1111111;
 				end
