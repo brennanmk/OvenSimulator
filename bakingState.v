@@ -35,11 +35,10 @@ module bakingState(input clk, input [1:0]state, input[9:0] timerVal, input [9:0]
 				end
 			end
 		end 
-
-		
-				tempVal0 <= currentTemp % 10;
-				tempVal1 <= (currentTemp / 10) % 10;
-				tempVal2 <= (currentTemp / 100) % 10;
+	
+		tempVal0 <= currentTemp % 10;
+		tempVal1 <= (currentTemp / 10) % 10;
+		tempVal2 <= (currentTemp / 100) % 10;
 	end
 		
 		

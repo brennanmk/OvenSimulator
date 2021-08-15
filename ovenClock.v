@@ -15,7 +15,7 @@ module ovenClock(input clk, onOff, output reg[3:0]minuteCountVal1 = 0, output re
 					
 					if(hourCountVal1 == 9) begin 
 						hourCountVal1 = 0;
-						if(hourCountVal2 == 1) begin
+						if(hourCountVal2 == 2) begin
 							hourCountVal2 = 0;
 							hourCountVal1 = 0;
 						end else begin
