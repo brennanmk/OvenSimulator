@@ -1,5 +1,5 @@
 |FinalProject
-in[0] => ~NO_FANOUT~
+in[0] => in[0].IN1
 in[1] => in[1].IN1
 in[2] => in[2].IN1
 in[3] => in[3].IN1
@@ -49,6 +49,7 @@ Hex5[3] << sevenSeg:Seg5.port1
 Hex5[2] << sevenSeg:Seg5.port1
 Hex5[1] << sevenSeg:Seg5.port1
 Hex5[0] << sevenSeg:Seg5.port1
+readyLed << bakingState:bake.readyLight
 
 
 |FinalProject|secondsClock:clock1
@@ -162,7 +163,29 @@ new_clk <= new_clk~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 |FinalProject|temp_input:tmp_in
 clk => clk.IN1
-onOff => ~NO_FANOUT~
+onOff => hex3.OUTPUTSELECT
+onOff => hex3.OUTPUTSELECT
+onOff => hex3.OUTPUTSELECT
+onOff => hex3.OUTPUTSELECT
+onOff => hex2.OUTPUTSELECT
+onOff => hex2.OUTPUTSELECT
+onOff => hex2.OUTPUTSELECT
+onOff => hex2.OUTPUTSELECT
+onOff => hex1.OUTPUTSELECT
+onOff => hex1.OUTPUTSELECT
+onOff => hex1.OUTPUTSELECT
+onOff => hex1.OUTPUTSELECT
+onOff => hex0.OUTPUTSELECT
+onOff => hex0.OUTPUTSELECT
+onOff => hex0.OUTPUTSELECT
+onOff => hex0.OUTPUTSELECT
+onOff => state.OUTPUTSELECT
+onOff => state.OUTPUTSELECT
+onOff => state.OUTPUTSELECT
+onOff => state.OUTPUTSELECT
+onOff => state.OUTPUTSELECT
+onOff => state.OUTPUTSELECT
+onOff => state.OUTPUTSELECT
 btn[0] => state.OUTPUTSELECT
 btn[0] => state.OUTPUTSELECT
 btn[0] => state.OUTPUTSELECT
@@ -198,10 +221,19 @@ btn[1] => state.OUTPUTSELECT
 btn[1] => state.OUTPUTSELECT
 btn[1] => state.OUTPUTSELECT
 btn[1] => state.OUTPUTSELECT
-sw[0] => Add1.IN6
-sw[1] => Add0.IN2
-sw[2] => Add0.IN1
-sw[2] => Add1.IN5
+sw[0] => Add3.IN8
+sw[0] => Add5.IN6
+sw[1] => Add1.IN6
+sw[1] => Add2.IN4
+sw[1] => Add4.IN2
+sw[2] => Add0.IN2
+sw[2] => Add2.IN3
+sw[2] => Add3.IN7
+sw[2] => Add4.IN1
+sw[2] => Add5.IN5
+sw[3] => Add0.IN1
+sw[3] => Add1.IN5
+sw[3] => Add2.IN2
 hex0[0] <= hex0[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 hex0[1] <= hex0[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 hex0[2] <= hex0[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -255,65 +287,65 @@ clk => clk.IN1
 state[0] => Equal0.IN31
 state[1] => Equal0.IN0
 timerVal[0] => LessThan0.IN10
+timerVal[0] => Add1.IN20
 timerVal[1] => LessThan0.IN9
+timerVal[1] => Add1.IN19
 timerVal[2] => LessThan0.IN8
+timerVal[2] => Add1.IN18
 timerVal[3] => LessThan0.IN7
+timerVal[3] => Add1.IN17
 timerVal[4] => LessThan0.IN6
+timerVal[4] => Add1.IN16
 timerVal[5] => LessThan0.IN5
+timerVal[5] => Add1.IN15
 timerVal[6] => LessThan0.IN4
+timerVal[6] => Add1.IN14
 timerVal[7] => LessThan0.IN3
+timerVal[7] => Add1.IN13
 timerVal[8] => LessThan0.IN2
+timerVal[8] => Add1.IN12
 timerVal[9] => LessThan0.IN1
+timerVal[9] => Add1.IN11
 inputTemp[0] => Equal1.IN9
 inputTemp[0] => LessThan1.IN21
 inputTemp[0] => LessThan2.IN10
 inputTemp[0] => currentTemp.DATAB
-inputTemp[0] => LessThan3.IN63
 inputTemp[1] => Equal1.IN8
 inputTemp[1] => LessThan1.IN20
 inputTemp[1] => LessThan2.IN9
 inputTemp[1] => currentTemp.DATAB
-inputTemp[1] => LessThan3.IN62
 inputTemp[2] => Equal1.IN7
 inputTemp[2] => LessThan1.IN19
 inputTemp[2] => LessThan2.IN8
 inputTemp[2] => currentTemp.DATAB
-inputTemp[2] => LessThan3.IN61
 inputTemp[3] => Equal1.IN6
 inputTemp[3] => LessThan1.IN18
 inputTemp[3] => LessThan2.IN7
 inputTemp[3] => currentTemp.DATAB
-inputTemp[3] => LessThan3.IN60
 inputTemp[4] => Equal1.IN5
 inputTemp[4] => LessThan1.IN17
 inputTemp[4] => LessThan2.IN6
 inputTemp[4] => currentTemp.DATAB
-inputTemp[4] => LessThan3.IN59
 inputTemp[5] => Equal1.IN4
 inputTemp[5] => LessThan1.IN16
 inputTemp[5] => LessThan2.IN5
 inputTemp[5] => currentTemp.DATAB
-inputTemp[5] => LessThan3.IN58
 inputTemp[6] => Equal1.IN3
 inputTemp[6] => LessThan1.IN15
 inputTemp[6] => LessThan2.IN4
 inputTemp[6] => currentTemp.DATAB
-inputTemp[6] => LessThan3.IN57
 inputTemp[7] => Equal1.IN2
 inputTemp[7] => LessThan1.IN14
 inputTemp[7] => LessThan2.IN3
 inputTemp[7] => currentTemp.DATAB
-inputTemp[7] => LessThan3.IN56
 inputTemp[8] => Equal1.IN1
 inputTemp[8] => LessThan1.IN13
 inputTemp[8] => LessThan2.IN2
 inputTemp[8] => currentTemp.DATAB
-inputTemp[8] => LessThan3.IN55
 inputTemp[9] => Equal1.IN0
 inputTemp[9] => LessThan1.IN12
 inputTemp[9] => LessThan2.IN1
 inputTemp[9] => currentTemp.DATAB
-inputTemp[9] => LessThan3.IN54
 tempVal0[0] <= tempVal0[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 tempVal0[1] <= tempVal0[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 tempVal0[2] <= tempVal0[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -326,6 +358,11 @@ tempVal2[0] <= tempVal2[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 tempVal2[1] <= tempVal2[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 tempVal2[2] <= tempVal2[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 tempVal2[3] <= tempVal2[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+tempVal3[0] <= tempVal3[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+tempVal3[1] <= tempVal3[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+tempVal3[2] <= tempVal3[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+tempVal3[3] <= tempVal3[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+readyLight <= readyLight~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |FinalProject|bakingState:bake|secondsClock:clock4

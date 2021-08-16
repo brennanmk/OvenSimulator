@@ -1,5 +1,7 @@
+Warning (10268): Verilog HDL information at FinalProject.v(37): always construct contains both blocking and non-blocking assignments File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 37
 Info (10281): Verilog HDL Declaration information at FinalProject.v(1): object "Hex0" differs only in case from object "hex0" in the same scope File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
 Info (10281): Verilog HDL Declaration information at FinalProject.v(1): object "Hex1" differs only in case from object "hex1" in the same scope File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
 Info (10281): Verilog HDL Declaration information at FinalProject.v(1): object "Hex2" differs only in case from object "hex2" in the same scope File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
 Info (10281): Verilog HDL Declaration information at FinalProject.v(1): object "Hex3" differs only in case from object "hex3" in the same scope File: E:/Advanced Digital Circuit Design/OvenSimulator/FinalProject.v Line: 1
-Warning (10268): Verilog HDL information at bakingState.v(11): always construct contains both blocking and non-blocking assignments File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 11
+Warning (10268): Verilog HDL information at temp_input.v(7): always construct contains both blocking and non-blocking assignments File: E:/Advanced Digital Circuit Design/OvenSimulator/temp_input.v Line: 7
+Warning (10268): Verilog HDL information at bakingState.v(10): always construct contains both blocking and non-blocking assignments File: E:/Advanced Digital Circuit Design/OvenSimulator/bakingState.v Line: 10

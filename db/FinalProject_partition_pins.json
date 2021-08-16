@@ -116,6 +116,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "readyLed",
+					"strict" : false
+				},
+				{
 					"name" : "onOff",
 					"strict" : false
 				},
@@ -124,11 +128,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "in[1]",
+					"name" : "in[0]",
 					"strict" : false
 				},
 				{
-					"name" : "in[3]",
+					"name" : "in[2]",
 					"strict" : false
 				},
 				{
@@ -136,7 +140,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "in[2]",
+					"name" : "in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "in[3]",
 					"strict" : false
 				},
 				{

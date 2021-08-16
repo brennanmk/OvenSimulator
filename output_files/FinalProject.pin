@@ -146,7 +146,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : B7        :        :                   :      
 pushButton[0]                : B8        : input  : 2.5 V             :         : 7         : Y              
 GND                          : B9        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B10       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B11       :        :                   :         : 7         :                
+readyLed                     : B11       : output : 2.5 V             :         : 7         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : B12       :        :                   :         : 7         :                
 GND                          : B13       : gnd    :                   :         :           :                
 in[2]                        : B14       : input  : 2.5 V             :         : 7         : Y              

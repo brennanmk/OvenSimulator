@@ -31,7 +31,10 @@ module sevenSeg(input [3:0]A, output reg [0:6] Seg);
 			9: begin
 				Seg = 7'b0000100;
 				end
-			10: begin //if A is 10 then turn the display off
+			10: begin //overflow incase 10 is entered - just stay at 9
+				Seg = 7'b0000100;
+				end
+			11: begin //if A is 11 then turn the display off
 				Seg = 7'b1111111;
 				end
 			default: begin
