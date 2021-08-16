@@ -1,5 +1,5 @@
 Timing Analyzer report for FinalProject
-Sat Aug 14 22:06:19 2021
+Mon Aug 16 14:16:05 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -92,12 +92,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
-; Average used               ; 1.25        ;
+; Average used               ; 1.23        ;
 ; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;   3.6%      ;
+;     Processors 2-8         ;   3.3%      ;
 +----------------------------+-------------+
 
 
@@ -119,11 +119,11 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+-----------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                    ; Note ;
 +------------+-----------------+-----------------------------------------------+------+
-; 57.21 MHz  ; 57.21 MHz       ; bakingState:bake|secondsClock:clock4|new_clk  ;      ;
-; 248.45 MHz ; 248.45 MHz      ; clk                                           ;      ;
-; 279.17 MHz ; 279.17 MHz      ; ovenClock:ovenClk|secondsClock:clock1|new_clk ;      ;
-; 363.5 MHz  ; 363.5 MHz       ; temp_input:tmp_in|secondsClock:clock2|new_clk ;      ;
-; 413.05 MHz ; 413.05 MHz      ; secondsClock:clock1|new_clk                   ;      ;
+; 54.59 MHz  ; 54.59 MHz       ; bakingState:bake|secondsClock:clock4|new_clk  ;      ;
+; 245.52 MHz ; 245.52 MHz      ; clk                                           ;      ;
+; 307.98 MHz ; 307.98 MHz      ; ovenClock:ovenClk|secondsClock:clock1|new_clk ;      ;
+; 354.99 MHz ; 354.99 MHz      ; secondsClock:clock1|new_clk                   ;      ;
+; 363.77 MHz ; 363.77 MHz      ; temp_input:tmp_in|secondsClock:clock2|new_clk ;      ;
 +------------+-----------------+-----------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -133,11 +133,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------------------+---------+---------------+
 ; Clock                                         ; Slack   ; End Point TNS ;
 +-----------------------------------------------+---------+---------------+
-; bakingState:bake|secondsClock:clock4|new_clk  ; -16.480 ; -243.722      ;
-; secondsClock:clock1|new_clk                   ; -4.892  ; -90.509       ;
-; clk                                           ; -3.025  ; -79.904       ;
-; ovenClock:ovenClk|secondsClock:clock1|new_clk ; -2.582  ; -27.905       ;
-; temp_input:tmp_in|secondsClock:clock2|new_clk ; -1.751  ; -19.645       ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; -17.318 ; -274.864      ;
+; secondsClock:clock1|new_clk                   ; -4.785  ; -92.313       ;
+; clk                                           ; -3.073  ; -81.041       ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; -2.247  ; -27.867       ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; -1.749  ; -20.057       ;
 +-----------------------------------------------+---------+---------------+
 
 
@@ -146,11 +146,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------------------+-------+---------------+
 ; Clock                                         ; Slack ; End Point TNS ;
 +-----------------------------------------------+-------+---------------+
-; bakingState:bake|secondsClock:clock4|new_clk  ; 0.348 ; 0.000         ;
-; secondsClock:clock1|new_clk                   ; 0.348 ; 0.000         ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; 0.331 ; 0.000         ;
 ; temp_input:tmp_in|secondsClock:clock2|new_clk ; 0.348 ; 0.000         ;
+; secondsClock:clock1|new_clk                   ; 0.349 ; 0.000         ;
 ; clk                                           ; 0.425 ; 0.000         ;
-; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 0.795 ; 0.000         ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 0.797 ; 0.000         ;
 +-----------------------------------------------+-------+---------------+
 
 
@@ -190,11 +190,11 @@ No synchronizer chains to report.
 +------------+-----------------+-----------------------------------------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                    ; Note                                                          ;
 +------------+-----------------+-----------------------------------------------+---------------------------------------------------------------+
-; 62.82 MHz  ; 62.82 MHz       ; bakingState:bake|secondsClock:clock4|new_clk  ;                                                               ;
-; 269.11 MHz ; 250.0 MHz       ; clk                                           ; limit due to minimum period restriction (max I/O toggle rate) ;
-; 302.76 MHz ; 302.76 MHz      ; ovenClock:ovenClk|secondsClock:clock1|new_clk ;                                                               ;
-; 396.35 MHz ; 396.35 MHz      ; temp_input:tmp_in|secondsClock:clock2|new_clk ;                                                               ;
-; 453.1 MHz  ; 416.15 MHz      ; secondsClock:clock1|new_clk                   ; limit due to minimum period restriction (tmin)                ;
+; 59.85 MHz  ; 59.85 MHz       ; bakingState:bake|secondsClock:clock4|new_clk  ;                                                               ;
+; 267.67 MHz ; 250.0 MHz       ; clk                                           ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 335.12 MHz ; 335.12 MHz      ; ovenClock:ovenClk|secondsClock:clock1|new_clk ;                                                               ;
+; 382.41 MHz ; 382.41 MHz      ; secondsClock:clock1|new_clk                   ;                                                               ;
+; 393.7 MHz  ; 393.7 MHz       ; temp_input:tmp_in|secondsClock:clock2|new_clk ;                                                               ;
 +------------+-----------------+-----------------------------------------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -204,11 +204,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------------------+---------+---------------+
 ; Clock                                         ; Slack   ; End Point TNS ;
 +-----------------------------------------------+---------+---------------+
-; bakingState:bake|secondsClock:clock4|new_clk  ; -14.918 ; -219.393      ;
-; secondsClock:clock1|new_clk                   ; -4.359  ; -79.920       ;
-; clk                                           ; -2.716  ; -71.543       ;
-; ovenClock:ovenClk|secondsClock:clock1|new_clk ; -2.303  ; -24.484       ;
-; temp_input:tmp_in|secondsClock:clock2|new_clk ; -1.523  ; -16.666       ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; -15.708 ; -248.408      ;
+; secondsClock:clock1|new_clk                   ; -4.247  ; -81.376       ;
+; clk                                           ; -2.736  ; -72.119       ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; -1.984  ; -24.226       ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; -1.540  ; -16.975       ;
 +-----------------------------------------------+---------+---------------+
 
 
@@ -217,11 +217,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------------------+-------+---------------+
 ; Clock                                         ; Slack ; End Point TNS ;
 +-----------------------------------------------+-------+---------------+
-; temp_input:tmp_in|secondsClock:clock2|new_clk ; 0.311 ; 0.000         ;
-; bakingState:bake|secondsClock:clock4|new_clk  ; 0.312 ; 0.000         ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; 0.296 ; 0.000         ;
 ; secondsClock:clock1|new_clk                   ; 0.312 ; 0.000         ;
-; clk                                           ; 0.393 ; 0.000         ;
-; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 0.723 ; 0.000         ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; 0.313 ; 0.000         ;
+; clk                                           ; 0.392 ; 0.000         ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 0.725 ; 0.000         ;
 +-----------------------------------------------+-------+---------------+
 
 
@@ -261,11 +261,11 @@ No synchronizer chains to report.
 +-----------------------------------------------+--------+---------------+
 ; Clock                                         ; Slack  ; End Point TNS ;
 +-----------------------------------------------+--------+---------------+
-; bakingState:bake|secondsClock:clock4|new_clk  ; -5.900 ; -80.756       ;
-; secondsClock:clock1|new_clk                   ; -1.331 ; -17.473       ;
-; clk                                           ; -0.684 ; -15.812       ;
-; ovenClock:ovenClk|secondsClock:clock1|new_clk ; -0.540 ; -3.376        ;
-; temp_input:tmp_in|secondsClock:clock2|new_clk ; -0.172 ; -0.883        ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; -6.324 ; -95.200       ;
+; secondsClock:clock1|new_clk                   ; -1.284 ; -18.342       ;
+; clk                                           ; -0.704 ; -16.582       ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; -0.438 ; -4.168        ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; -0.155 ; -0.945        ;
 +-----------------------------------------------+--------+---------------+
 
 
@@ -274,11 +274,11 @@ No synchronizer chains to report.
 +-----------------------------------------------+-------+---------------+
 ; Clock                                         ; Slack ; End Point TNS ;
 +-----------------------------------------------+-------+---------------+
-; bakingState:bake|secondsClock:clock4|new_clk  ; 0.152 ; 0.000         ;
-; secondsClock:clock1|new_clk                   ; 0.152 ; 0.000         ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; 0.145 ; 0.000         ;
 ; temp_input:tmp_in|secondsClock:clock2|new_clk ; 0.152 ; 0.000         ;
+; secondsClock:clock1|new_clk                   ; 0.153 ; 0.000         ;
 ; clk                                           ; 0.170 ; 0.000         ;
-; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 0.311 ; 0.000         ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 0.315 ; 0.000         ;
 +-----------------------------------------------+-------+---------------+
 
 
@@ -299,7 +299,7 @@ No paths to report.
 +-----------------------------------------------+--------+---------------+
 ; Clock                                         ; Slack  ; End Point TNS ;
 +-----------------------------------------------+--------+---------------+
-; clk                                           ; -3.000 ; -33.073       ;
+; clk                                           ; -3.000 ; -33.040       ;
 ; secondsClock:clock1|new_clk                   ; -1.000 ; -38.000       ;
 ; bakingState:bake|secondsClock:clock4|new_clk  ; -1.000 ; -33.000       ;
 ; temp_input:tmp_in|secondsClock:clock2|new_clk ; -1.000 ; -19.000       ;
@@ -318,18 +318,18 @@ No synchronizer chains to report.
 +------------------------------------------------+----------+-------+----------+---------+---------------------+
 ; Clock                                          ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------------------------------------+----------+-------+----------+---------+---------------------+
-; Worst-case Slack                               ; -16.480  ; 0.152 ; N/A      ; N/A     ; -3.000              ;
-;  bakingState:bake|secondsClock:clock4|new_clk  ; -16.480  ; 0.152 ; N/A      ; N/A     ; -1.403              ;
-;  clk                                           ; -3.025   ; 0.170 ; N/A      ; N/A     ; -3.000              ;
-;  ovenClock:ovenClk|secondsClock:clock1|new_clk ; -2.582   ; 0.311 ; N/A      ; N/A     ; -1.403              ;
-;  secondsClock:clock1|new_clk                   ; -4.892   ; 0.152 ; N/A      ; N/A     ; -1.403              ;
-;  temp_input:tmp_in|secondsClock:clock2|new_clk ; -1.751   ; 0.152 ; N/A      ; N/A     ; -1.403              ;
-; Design-wide TNS                                ; -461.685 ; 0.0   ; 0.0      ; 0.0     ; -192.405            ;
-;  bakingState:bake|secondsClock:clock4|new_clk  ; -243.722 ; 0.000 ; N/A      ; N/A     ; -46.299             ;
-;  clk                                           ; -79.904  ; 0.000 ; N/A      ; N/A     ; -43.687             ;
-;  ovenClock:ovenClk|secondsClock:clock1|new_clk ; -27.905  ; 0.000 ; N/A      ; N/A     ; -22.448             ;
-;  secondsClock:clock1|new_clk                   ; -90.509  ; 0.000 ; N/A      ; N/A     ; -53.314             ;
-;  temp_input:tmp_in|secondsClock:clock2|new_clk ; -19.645  ; 0.000 ; N/A      ; N/A     ; -26.657             ;
+; Worst-case Slack                               ; -17.318  ; 0.145 ; N/A      ; N/A     ; -3.000              ;
+;  bakingState:bake|secondsClock:clock4|new_clk  ; -17.318  ; 0.145 ; N/A      ; N/A     ; -1.403              ;
+;  clk                                           ; -3.073   ; 0.170 ; N/A      ; N/A     ; -3.000              ;
+;  ovenClock:ovenClk|secondsClock:clock1|new_clk ; -2.247   ; 0.315 ; N/A      ; N/A     ; -1.403              ;
+;  secondsClock:clock1|new_clk                   ; -4.785   ; 0.153 ; N/A      ; N/A     ; -1.403              ;
+;  temp_input:tmp_in|secondsClock:clock2|new_clk ; -1.749   ; 0.152 ; N/A      ; N/A     ; -1.403              ;
+; Design-wide TNS                                ; -496.142 ; 0.0   ; 0.0      ; 0.0     ; -192.405            ;
+;  bakingState:bake|secondsClock:clock4|new_clk  ; -274.864 ; 0.000 ; N/A      ; N/A     ; -46.299             ;
+;  clk                                           ; -81.041  ; 0.000 ; N/A      ; N/A     ; -43.687             ;
+;  ovenClock:ovenClk|secondsClock:clock1|new_clk ; -27.867  ; 0.000 ; N/A      ; N/A     ; -22.448             ;
+;  secondsClock:clock1|new_clk                   ; -92.313  ; 0.000 ; N/A      ; N/A     ; -53.314             ;
+;  temp_input:tmp_in|secondsClock:clock2|new_clk ; -20.057  ; 0.000 ; N/A      ; N/A     ; -26.657             ;
 +------------------------------------------------+----------+-------+----------+---------+---------------------+
 
 
@@ -565,14 +565,14 @@ No synchronizer chains to report.
 +-----------------------------------------------+-----------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                    ; To Clock                                      ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-----------------------------------------------+-----------------------------------------------+----------+----------+----------+----------+
-; bakingState:bake|secondsClock:clock4|new_clk  ; bakingState:bake|secondsClock:clock4|new_clk  ; 32471880 ; 0        ; 0        ; 0        ;
-; secondsClock:clock1|new_clk                   ; bakingState:bake|secondsClock:clock4|new_clk  ; 854      ; 0        ; 0        ; 0        ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; bakingState:bake|secondsClock:clock4|new_clk  ; 32473922 ; 0        ; 0        ; 0        ;
+; secondsClock:clock1|new_clk                   ; bakingState:bake|secondsClock:clock4|new_clk  ; 1324     ; 0        ; 0        ; 0        ;
 ; bakingState:bake|secondsClock:clock4|new_clk  ; clk                                           ; 1        ; 1        ; 0        ; 0        ;
 ; clk                                           ; clk                                           ; 876      ; 0        ; 0        ; 0        ;
 ; ovenClock:ovenClk|secondsClock:clock1|new_clk ; clk                                           ; 1        ; 1        ; 0        ; 0        ;
 ; secondsClock:clock1|new_clk                   ; clk                                           ; 1        ; 1        ; 0        ; 0        ;
 ; temp_input:tmp_in|secondsClock:clock2|new_clk ; clk                                           ; 1        ; 1        ; 0        ; 0        ;
-; ovenClock:ovenClk|secondsClock:clock1|new_clk ; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 148      ; 0        ; 0        ; 0        ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 143      ; 0        ; 0        ; 0        ;
 ; bakingState:bake|secondsClock:clock4|new_clk  ; secondsClock:clock1|new_clk                   ; 12       ; 0        ; 0        ; 0        ;
 ; ovenClock:ovenClk|secondsClock:clock1|new_clk ; secondsClock:clock1|new_clk                   ; 16       ; 0        ; 0        ; 0        ;
 ; secondsClock:clock1|new_clk                   ; secondsClock:clock1|new_clk                   ; 92       ; 0        ; 0        ; 0        ;
@@ -587,14 +587,14 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-----------------------------------------------+-----------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                    ; To Clock                                      ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-----------------------------------------------+-----------------------------------------------+----------+----------+----------+----------+
-; bakingState:bake|secondsClock:clock4|new_clk  ; bakingState:bake|secondsClock:clock4|new_clk  ; 32471880 ; 0        ; 0        ; 0        ;
-; secondsClock:clock1|new_clk                   ; bakingState:bake|secondsClock:clock4|new_clk  ; 854      ; 0        ; 0        ; 0        ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; bakingState:bake|secondsClock:clock4|new_clk  ; 32473922 ; 0        ; 0        ; 0        ;
+; secondsClock:clock1|new_clk                   ; bakingState:bake|secondsClock:clock4|new_clk  ; 1324     ; 0        ; 0        ; 0        ;
 ; bakingState:bake|secondsClock:clock4|new_clk  ; clk                                           ; 1        ; 1        ; 0        ; 0        ;
 ; clk                                           ; clk                                           ; 876      ; 0        ; 0        ; 0        ;
 ; ovenClock:ovenClk|secondsClock:clock1|new_clk ; clk                                           ; 1        ; 1        ; 0        ; 0        ;
 ; secondsClock:clock1|new_clk                   ; clk                                           ; 1        ; 1        ; 0        ; 0        ;
 ; temp_input:tmp_in|secondsClock:clock2|new_clk ; clk                                           ; 1        ; 1        ; 0        ; 0        ;
-; ovenClock:ovenClk|secondsClock:clock1|new_clk ; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 148      ; 0        ; 0        ; 0        ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 143      ; 0        ; 0        ; 0        ;
 ; bakingState:bake|secondsClock:clock4|new_clk  ; secondsClock:clock1|new_clk                   ; 12       ; 0        ; 0        ; 0        ;
 ; ovenClock:ovenClk|secondsClock:clock1|new_clk ; secondsClock:clock1|new_clk                   ; 16       ; 0        ; 0        ; 0        ;
 ; secondsClock:clock1|new_clk                   ; secondsClock:clock1|new_clk                   ; 92       ; 0        ; 0        ; 0        ;
@@ -749,7 +749,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat Aug 14 22:06:17 2021
+    Info: Processing started: Mon Aug 16 14:16:03 2021
 Info: Command: quartus_sta FinalProject -c FinalProject
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -770,22 +770,22 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -16.480
+Info (332146): Worst-case setup slack is -17.318
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -16.480            -243.722 bakingState:bake|secondsClock:clock4|new_clk 
-    Info (332119):    -4.892             -90.509 secondsClock:clock1|new_clk 
-    Info (332119):    -3.025             -79.904 clk 
-    Info (332119):    -2.582             -27.905 ovenClock:ovenClk|secondsClock:clock1|new_clk 
-    Info (332119):    -1.751             -19.645 temp_input:tmp_in|secondsClock:clock2|new_clk 
-Info (332146): Worst-case hold slack is 0.348
+    Info (332119):   -17.318            -274.864 bakingState:bake|secondsClock:clock4|new_clk 
+    Info (332119):    -4.785             -92.313 secondsClock:clock1|new_clk 
+    Info (332119):    -3.073             -81.041 clk 
+    Info (332119):    -2.247             -27.867 ovenClock:ovenClk|secondsClock:clock1|new_clk 
+    Info (332119):    -1.749             -20.057 temp_input:tmp_in|secondsClock:clock2|new_clk 
+Info (332146): Worst-case hold slack is 0.331
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.348               0.000 bakingState:bake|secondsClock:clock4|new_clk 
-    Info (332119):     0.348               0.000 secondsClock:clock1|new_clk 
+    Info (332119):     0.331               0.000 bakingState:bake|secondsClock:clock4|new_clk 
     Info (332119):     0.348               0.000 temp_input:tmp_in|secondsClock:clock2|new_clk 
+    Info (332119):     0.349               0.000 secondsClock:clock1|new_clk 
     Info (332119):     0.425               0.000 clk 
-    Info (332119):     0.795               0.000 ovenClock:ovenClk|secondsClock:clock1|new_clk 
+    Info (332119):     0.797               0.000 ovenClock:ovenClk|secondsClock:clock1|new_clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
@@ -801,22 +801,22 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -14.918
+Info (332146): Worst-case setup slack is -15.708
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -14.918            -219.393 bakingState:bake|secondsClock:clock4|new_clk 
-    Info (332119):    -4.359             -79.920 secondsClock:clock1|new_clk 
-    Info (332119):    -2.716             -71.543 clk 
-    Info (332119):    -2.303             -24.484 ovenClock:ovenClk|secondsClock:clock1|new_clk 
-    Info (332119):    -1.523             -16.666 temp_input:tmp_in|secondsClock:clock2|new_clk 
-Info (332146): Worst-case hold slack is 0.311
+    Info (332119):   -15.708            -248.408 bakingState:bake|secondsClock:clock4|new_clk 
+    Info (332119):    -4.247             -81.376 secondsClock:clock1|new_clk 
+    Info (332119):    -2.736             -72.119 clk 
+    Info (332119):    -1.984             -24.226 ovenClock:ovenClk|secondsClock:clock1|new_clk 
+    Info (332119):    -1.540             -16.975 temp_input:tmp_in|secondsClock:clock2|new_clk 
+Info (332146): Worst-case hold slack is 0.296
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.311               0.000 temp_input:tmp_in|secondsClock:clock2|new_clk 
-    Info (332119):     0.312               0.000 bakingState:bake|secondsClock:clock4|new_clk 
+    Info (332119):     0.296               0.000 bakingState:bake|secondsClock:clock4|new_clk 
     Info (332119):     0.312               0.000 secondsClock:clock1|new_clk 
-    Info (332119):     0.393               0.000 clk 
-    Info (332119):     0.723               0.000 ovenClock:ovenClk|secondsClock:clock1|new_clk 
+    Info (332119):     0.313               0.000 temp_input:tmp_in|secondsClock:clock2|new_clk 
+    Info (332119):     0.392               0.000 clk 
+    Info (332119):     0.725               0.000 ovenClock:ovenClk|secondsClock:clock1|new_clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
@@ -830,28 +830,28 @@ Info (332146): Worst-case minimum pulse width slack is -3.000
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -5.900
+Info (332146): Worst-case setup slack is -6.324
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -5.900             -80.756 bakingState:bake|secondsClock:clock4|new_clk 
-    Info (332119):    -1.331             -17.473 secondsClock:clock1|new_clk 
-    Info (332119):    -0.684             -15.812 clk 
-    Info (332119):    -0.540              -3.376 ovenClock:ovenClk|secondsClock:clock1|new_clk 
-    Info (332119):    -0.172              -0.883 temp_input:tmp_in|secondsClock:clock2|new_clk 
-Info (332146): Worst-case hold slack is 0.152
+    Info (332119):    -6.324             -95.200 bakingState:bake|secondsClock:clock4|new_clk 
+    Info (332119):    -1.284             -18.342 secondsClock:clock1|new_clk 
+    Info (332119):    -0.704             -16.582 clk 
+    Info (332119):    -0.438              -4.168 ovenClock:ovenClk|secondsClock:clock1|new_clk 
+    Info (332119):    -0.155              -0.945 temp_input:tmp_in|secondsClock:clock2|new_clk 
+Info (332146): Worst-case hold slack is 0.145
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.152               0.000 bakingState:bake|secondsClock:clock4|new_clk 
-    Info (332119):     0.152               0.000 secondsClock:clock1|new_clk 
+    Info (332119):     0.145               0.000 bakingState:bake|secondsClock:clock4|new_clk 
     Info (332119):     0.152               0.000 temp_input:tmp_in|secondsClock:clock2|new_clk 
+    Info (332119):     0.153               0.000 secondsClock:clock1|new_clk 
     Info (332119):     0.170               0.000 clk 
-    Info (332119):     0.311               0.000 ovenClock:ovenClk|secondsClock:clock1|new_clk 
+    Info (332119):     0.315               0.000 ovenClock:ovenClk|secondsClock:clock1|new_clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -33.073 clk 
+    Info (332119):    -3.000             -33.040 clk 
     Info (332119):    -1.000             -38.000 secondsClock:clock1|new_clk 
     Info (332119):    -1.000             -33.000 bakingState:bake|secondsClock:clock4|new_clk 
     Info (332119):    -1.000             -19.000 temp_input:tmp_in|secondsClock:clock2|new_clk 
@@ -859,8 +859,8 @@ Info (332146): Worst-case minimum pulse width slack is -3.000
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4877 megabytes
-    Info: Processing ended: Sat Aug 14 22:06:19 2021
+    Info: Peak virtual memory: 4882 megabytes
+    Info: Processing ended: Mon Aug 16 14:16:05 2021
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

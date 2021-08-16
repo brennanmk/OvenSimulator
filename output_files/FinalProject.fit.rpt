@@ -1,5 +1,5 @@
 Fitter report for FinalProject
-Sat Aug 14 22:06:13 2021
+Mon Aug 16 14:15:59 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -69,15 +69,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Sat Aug 14 22:06:13 2021       ;
+; Fitter Status                      ; Successful - Mon Aug 16 14:15:59 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; FinalProject                                ;
 ; Top-level Entity Name              ; FinalProject                                ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 611 / 49,760 ( 1 % )                        ;
-;     Total combinational functions  ; 585 / 49,760 ( 1 % )                        ;
+; Total logic elements               ; 623 / 49,760 ( 1 % )                        ;
+;     Total combinational functions  ; 599 / 49,760 ( 1 % )                        ;
 ;     Dedicated logic registers      ; 135 / 49,760 ( < 1 % )                      ;
 ; Total registers                    ; 135                                         ;
 ; Total pins                         ; 50 / 360 ( 14 % )                           ;
@@ -155,18 +155,13 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
-; Average used               ; 1.15        ;
+; Average used               ; 1.16        ;
 ; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.1%      ;
-;     Processor 3            ;   2.1%      ;
-;     Processor 4            ;   2.1%      ;
-;     Processor 5            ;   2.1%      ;
-;     Processor 6            ;   2.1%      ;
-;     Processor 7            ;   2.1%      ;
-;     Processor 8            ;   2.1%      ;
+;     Processor 2            ;   2.3%      ;
+;     Processors 3-8         ;   2.3%      ;
 +----------------------------+-------------+
 
 
@@ -189,8 +184,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 843 ) ; 0.00 % ( 0 / 843 )         ; 0.00 % ( 0 / 843 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 843 ) ; 0.00 % ( 0 / 843 )         ; 0.00 % ( 0 / 843 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 857 ) ; 0.00 % ( 0 / 857 )         ; 0.00 % ( 0 / 857 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 857 ) ; 0.00 % ( 0 / 857 )         ; 0.00 % ( 0 / 857 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -213,7 +208,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 827 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 841 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 16 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -229,26 +224,26 @@ The pin-out file can be found in E:/Advanced Digital Circuit Design/OvenSimulato
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Total logic elements                        ; 611 / 49,760 ( 1 % )   ;
-;     -- Combinational with no register       ; 476                    ;
-;     -- Register only                        ; 26                     ;
-;     -- Combinational with a register        ; 109                    ;
+; Total logic elements                        ; 623 / 49,760 ( 1 % )   ;
+;     -- Combinational with no register       ; 488                    ;
+;     -- Register only                        ; 24                     ;
+;     -- Combinational with a register        ; 111                    ;
 ;                                             ;                        ;
 ; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 125                    ;
-;     -- 3 input functions                    ; 186                    ;
-;     -- <=2 input functions                  ; 274                    ;
-;     -- Register only                        ; 26                     ;
+;     -- 4 input functions                    ; 123                    ;
+;     -- 3 input functions                    ; 197                    ;
+;     -- <=2 input functions                  ; 279                    ;
+;     -- Register only                        ; 24                     ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 379                    ;
-;     -- arithmetic mode                      ; 206                    ;
+;     -- normal mode                          ; 382                    ;
+;     -- arithmetic mode                      ; 217                    ;
 ;                                             ;                        ;
 ; Total registers*                            ; 135 / 51,509 ( < 1 % ) ;
 ;     -- Dedicated logic registers            ; 135 / 49,760 ( < 1 % ) ;
 ;     -- I/O registers                        ; 0 / 1,749 ( 0 % )      ;
 ;                                             ;                        ;
-; Total LABs:  partially or completely used   ; 51 / 3,110 ( 2 % )     ;
+; Total LABs:  partially or completely used   ; 53 / 3,110 ( 2 % )     ;
 ; Virtual pins                                ; 0                      ;
 ; I/O pins                                    ; 50 / 360 ( 14 % )      ;
 ;     -- Clock pins                           ; 1 / 8 ( 13 % )         ;
@@ -268,11 +263,11 @@ The pin-out file can be found in E:/Advanced Digital Circuit Design/OvenSimulato
 ; Remote update blocks                        ; 0 / 1 ( 0 % )          ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )          ;
 ; Impedance control blocks                    ; 0 / 1 ( 0 % )          ;
-; Average interconnect usage (total/H/V)      ; 0.2% / 0.2% / 0.3%     ;
-; Peak interconnect usage (total/H/V)         ; 5.6% / 5.3% / 5.9%     ;
+; Average interconnect usage (total/H/V)      ; 0.3% / 0.2% / 0.3%     ;
+; Peak interconnect usage (total/H/V)         ; 5.9% / 5.9% / 5.9%     ;
 ; Maximum fan-out                             ; 38                     ;
 ; Highest non-global fan-out                  ; 29                     ;
-; Total fan-out                               ; 2063                   ;
+; Total fan-out                               ; 2109                   ;
 ; Average fan-out                             ; 2.39                   ;
 +---------------------------------------------+------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
@@ -286,26 +281,26 @@ The pin-out file can be found in E:/Advanced Digital Circuit Design/OvenSimulato
 +---------------------------------------------+-----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                   ; Low                            ;
 ;                                             ;                       ;                                ;
-; Total logic elements                        ; 611 / 49760 ( 1 % )   ; 0 / 49760 ( 0 % )              ;
-;     -- Combinational with no register       ; 476                   ; 0                              ;
-;     -- Register only                        ; 26                    ; 0                              ;
-;     -- Combinational with a register        ; 109                   ; 0                              ;
+; Total logic elements                        ; 623 / 49760 ( 1 % )   ; 0 / 49760 ( 0 % )              ;
+;     -- Combinational with no register       ; 488                   ; 0                              ;
+;     -- Register only                        ; 24                    ; 0                              ;
+;     -- Combinational with a register        ; 111                   ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic element usage by number of LUT inputs ;                       ;                                ;
-;     -- 4 input functions                    ; 125                   ; 0                              ;
-;     -- 3 input functions                    ; 186                   ; 0                              ;
-;     -- <=2 input functions                  ; 274                   ; 0                              ;
-;     -- Register only                        ; 26                    ; 0                              ;
+;     -- 4 input functions                    ; 123                   ; 0                              ;
+;     -- 3 input functions                    ; 197                   ; 0                              ;
+;     -- <=2 input functions                  ; 279                   ; 0                              ;
+;     -- Register only                        ; 24                    ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic elements by mode                      ;                       ;                                ;
-;     -- normal mode                          ; 379                   ; 0                              ;
-;     -- arithmetic mode                      ; 206                   ; 0                              ;
+;     -- normal mode                          ; 382                   ; 0                              ;
+;     -- arithmetic mode                      ; 217                   ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Total registers                             ; 135                   ; 0                              ;
 ;     -- Dedicated logic registers            ; 135 / 49760 ( < 1 % ) ; 0 / 49760 ( 0 % )              ;
 ;     -- I/O registers                        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
-; Total LABs:  partially or completely used   ; 51 / 3110 ( 2 % )     ; 0 / 3110 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 53 / 3110 ( 2 % )     ; 0 / 3110 ( 0 % )               ;
 ;                                             ;                       ;                                ;
 ; Virtual pins                                ; 0                     ; 0                              ;
 ; I/O pins                                    ; 50                    ; 0                              ;
@@ -323,7 +318,7 @@ The pin-out file can be found in E:/Advanced Digital Circuit Design/OvenSimulato
 ;     -- Registered Output Connections        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Internal Connections                        ;                       ;                                ;
-;     -- Total Connections                    ; 2069                  ; 8                              ;
+;     -- Total Connections                    ; 2115                  ; 8                              ;
 ;     -- Registered Connections               ; 635                   ; 0                              ;
 ;                                             ;                       ;                                ;
 ; External Connections                        ;                       ;                                ;
@@ -1006,8 +1001,8 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                                                                                                            ; Entity Name         ; Library Name ;
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |FinalProject                             ; 611 (72)    ; 135 (38)                  ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 50   ; 0            ; 476 (36)     ; 26 (0)            ; 109 (36)         ; 0          ; |FinalProject                                                                                                                  ; FinalProject        ; work         ;
-;    |bakingState:bake|                     ; 426 (102)   ; 59 (33)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 364 (66)     ; 7 (0)             ; 55 (26)          ; 0          ; |FinalProject|bakingState:bake                                                                                                 ; bakingState         ; work         ;
+; |FinalProject                             ; 623 (75)    ; 135 (38)                  ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 50   ; 0            ; 488 (38)     ; 24 (2)            ; 111 (33)         ; 0          ; |FinalProject                                                                                                                  ; FinalProject        ; work         ;
+;    |bakingState:bake|                     ; 437 (117)   ; 59 (33)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 374 (80)     ; 3 (0)             ; 60 (27)          ; 0          ; |FinalProject|bakingState:bake                                                                                                 ; bakingState         ; work         ;
 ;       |lpm_divide:Div0|                   ; 82 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 82 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
 ;          |lpm_divide_itl:auto_generated|  ; 82 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 82 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Div0|lpm_divide_itl:auto_generated                                                   ; lpm_divide_itl      ; work         ;
 ;             |sign_div_unsign_klh:divider| ; 82 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 82 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Div0|lpm_divide_itl:auto_generated|sign_div_unsign_klh:divider                       ; sign_div_unsign_klh ; work         ;
@@ -1028,19 +1023,19 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;          |lpm_divide_lll:auto_generated|  ; 10 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (0)        ; 0 (0)             ; 4 (0)            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Mod2|lpm_divide_lll:auto_generated                                                   ; lpm_divide_lll      ; work         ;
 ;             |sign_div_unsign_klh:divider| ; 10 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (0)        ; 0 (0)             ; 4 (0)            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Mod2|lpm_divide_lll:auto_generated|sign_div_unsign_klh:divider                       ; sign_div_unsign_klh ; work         ;
 ;                |alt_u_div_ihe:divider|    ; 10 (10)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (6)        ; 0 (0)             ; 4 (4)            ; 0          ; |FinalProject|bakingState:bake|lpm_divide:Mod2|lpm_divide_lll:auto_generated|sign_div_unsign_klh:divider|alt_u_div_ihe:divider ; alt_u_div_ihe       ; work         ;
-;       |secondsClock:clock4|               ; 39 (39)     ; 26 (26)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 13 (13)      ; 7 (7)             ; 19 (19)          ; 0          ; |FinalProject|bakingState:bake|secondsClock:clock4                                                                             ; secondsClock        ; work         ;
-;    |lpm_mult:Mult0|                       ; 3 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |FinalProject|lpm_mult:Mult0                                                                                                   ; lpm_mult            ; work         ;
-;       |multcore:mult_core|                ; 3 (3)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0          ; |FinalProject|lpm_mult:Mult0|multcore:mult_core                                                                                ; multcore            ; work         ;
+;       |secondsClock:clock4|               ; 35 (35)     ; 26 (26)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 3 (3)             ; 23 (23)          ; 0          ; |FinalProject|bakingState:bake|secondsClock:clock4                                                                             ; secondsClock        ; work         ;
+;    |lpm_mult:Mult0|                       ; 4 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (0)        ; 0 (0)             ; 1 (0)            ; 0          ; |FinalProject|lpm_mult:Mult0                                                                                                   ; lpm_mult            ; work         ;
+;       |multcore:mult_core|                ; 4 (4)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 1 (1)            ; 0          ; |FinalProject|lpm_mult:Mult0|multcore:mult_core                                                                                ; multcore            ; work         ;
 ;    |lpm_mult:Mult1|                       ; 6 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |FinalProject|lpm_mult:Mult1                                                                                                   ; lpm_mult            ; work         ;
 ;       |multcore:mult_core|                ; 6 (6)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (6)        ; 0 (0)             ; 0 (0)            ; 0          ; |FinalProject|lpm_mult:Mult1|multcore:mult_core                                                                                ; multcore            ; work         ;
-;    |ovenClock:ovenClk|                    ; 41 (39)     ; 17 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 24 (23)      ; 17 (16)           ; 0 (0)            ; 0          ; |FinalProject|ovenClock:ovenClk                                                                                                ; ovenClock           ; work         ;
+;    |ovenClock:ovenClk|                    ; 40 (38)     ; 17 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 23 (22)      ; 17 (16)           ; 0 (0)            ; 0          ; |FinalProject|ovenClock:ovenClk                                                                                                ; ovenClock           ; work         ;
 ;       |secondsClock:clock1|               ; 2 (2)       ; 1 (1)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 1 (1)             ; 0 (0)            ; 0          ; |FinalProject|ovenClock:ovenClk|secondsClock:clock1                                                                            ; secondsClock        ; work         ;
 ;    |secondsClock:clock1|                  ; 2 (2)       ; 1 (1)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 1 (1)             ; 0 (0)            ; 0          ; |FinalProject|secondsClock:clock1                                                                                              ; secondsClock        ; work         ;
 ;    |sevenSeg:Seg0|                        ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0          ; |FinalProject|sevenSeg:Seg0                                                                                                    ; sevenSeg            ; work         ;
 ;    |sevenSeg:Seg1|                        ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0          ; |FinalProject|sevenSeg:Seg1                                                                                                    ; sevenSeg            ; work         ;
 ;    |sevenSeg:Seg2|                        ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0          ; |FinalProject|sevenSeg:Seg2                                                                                                    ; sevenSeg            ; work         ;
 ;    |sevenSeg:Seg3|                        ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0          ; |FinalProject|sevenSeg:Seg3                                                                                                    ; sevenSeg            ; work         ;
-;    |temp_input:tmp_in|                    ; 34 (32)     ; 20 (19)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 14 (13)      ; 1 (0)             ; 19 (19)          ; 0          ; |FinalProject|temp_input:tmp_in                                                                                                ; temp_input          ; work         ;
+;    |temp_input:tmp_in|                    ; 35 (33)     ; 20 (19)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 15 (14)      ; 1 (0)             ; 19 (19)          ; 0          ; |FinalProject|temp_input:tmp_in                                                                                                ; temp_input          ; work         ;
 ;       |secondsClock:clock2|               ; 2 (2)       ; 1 (1)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 1 (1)             ; 0 (0)            ; 0          ; |FinalProject|temp_input:tmp_in|secondsClock:clock2                                                                            ; secondsClock        ; work         ;
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -1097,9 +1092,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; onOff         ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 ; clk           ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
 ; in[1]         ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; in[3]         ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
+; in[3]         ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 ; pushButton[1] ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; in[2]         ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
+; in[2]         ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 ; pushButton[0] ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
 +---------------+----------+---------------+---------------+-----------------------+-----+------+
 
@@ -1127,10 +1122,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - hexVal3[1]                    ; 0                 ; 6       ;
 ;      - hexVal3[2]                    ; 0                 ; 6       ;
 ;      - hexVal3[3]                    ; 0                 ; 6       ;
-;      - hexVal0[3]~1                  ; 0                 ; 6       ;
+;      - hexVal2[2]~0                  ; 0                 ; 6       ;
 ;      - state[1]~0                    ; 0                 ; 6       ;
 ;      - state[0]~1                    ; 0                 ; 6       ;
-;      - tempVal[9]~8                  ; 0                 ; 6       ;
+;      - tempVal[9]~22                 ; 0                 ; 6       ;
 ;      - timerVal[9]~21                ; 0                 ; 6       ;
 ; clk                                  ;                   ;         ;
 ; in[1]                                ;                   ;         ;
@@ -1143,16 +1138,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - temp_input:tmp_in|hex0~6      ; 0                 ; 6       ;
 ;      - temp_input:tmp_in|hex0~7      ; 0                 ; 6       ;
 ; in[3]                                ;                   ;         ;
-;      - temp_input:tmp_in|hex0~0      ; 1                 ; 6       ;
-;      - temp_input:tmp_in|Add1~0      ; 1                 ; 6       ;
-;      - temp_input:tmp_in|Add1~1      ; 1                 ; 6       ;
-;      - temp_input:tmp_in|hex1~0      ; 1                 ; 6       ;
-;      - temp_input:tmp_in|Add1~2      ; 1                 ; 6       ;
-;      - temp_input:tmp_in|hex0~5      ; 1                 ; 6       ;
-;      - temp_input:tmp_in|hex0~6      ; 1                 ; 6       ;
-;      - temp_input:tmp_in|hex0~7      ; 1                 ; 6       ;
+;      - temp_input:tmp_in|hex0~0      ; 0                 ; 6       ;
+;      - temp_input:tmp_in|Add1~0      ; 0                 ; 6       ;
+;      - temp_input:tmp_in|Add1~1      ; 0                 ; 6       ;
+;      - temp_input:tmp_in|hex1~0      ; 0                 ; 6       ;
+;      - temp_input:tmp_in|Add1~2      ; 0                 ; 6       ;
+;      - temp_input:tmp_in|hex0~5      ; 0                 ; 6       ;
+;      - temp_input:tmp_in|hex0~6      ; 0                 ; 6       ;
+;      - temp_input:tmp_in|hex0~7      ; 0                 ; 6       ;
 ; pushButton[1]                        ;                   ;         ;
-;      - temp_input:tmp_in|hex0[2]~1   ; 0                 ; 6       ;
+;      - temp_input:tmp_in|hex0[3]~1   ; 0                 ; 6       ;
 ;      - state[1]~0                    ; 0                 ; 6       ;
 ;      - state[0]~1                    ; 0                 ; 6       ;
 ;      - temp_input:tmp_in|hex1[0]~1   ; 0                 ; 6       ;
@@ -1162,13 +1157,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - temp_input:tmp_in|hex3[0]~0   ; 0                 ; 6       ;
 ;      - temp_input:tmp_in|state~19    ; 0                 ; 6       ;
 ;      - temp_input:tmp_in|state.011~0 ; 0                 ; 6       ;
-;      - tempVal[9]~8                  ; 0                 ; 6       ;
+;      - tempVal[9]~22                 ; 0                 ; 6       ;
 ;      - timerVal[9]~21                ; 0                 ; 6       ;
 ; in[2]                                ;                   ;         ;
-;      - temp_input:tmp_in|Add1~0      ; 1                 ; 6       ;
-;      - temp_input:tmp_in|Add1~1      ; 1                 ; 6       ;
-;      - temp_input:tmp_in|hex0~6      ; 1                 ; 6       ;
-;      - temp_input:tmp_in|hex0~7      ; 1                 ; 6       ;
+;      - temp_input:tmp_in|Add1~0      ; 0                 ; 6       ;
+;      - temp_input:tmp_in|Add1~1      ; 0                 ; 6       ;
+;      - temp_input:tmp_in|hex0~6      ; 0                 ; 6       ;
+;      - temp_input:tmp_in|hex0~7      ; 0                 ; 6       ;
 ; pushButton[0]                        ;                   ;         ;
 ;      - temp_input:tmp_in|state.000   ; 1                 ; 6       ;
 ;      - temp_input:tmp_in|state.001   ; 1                 ; 6       ;
@@ -1185,28 +1180,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
 ; Name                                             ; Location           ; Fan-Out ; Usage                     ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +--------------------------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; bakingState:bake|counter[3]~31                   ; LCCOMB_X59_Y47_N0  ; 9       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; bakingState:bake|currentTemp[0]~14               ; LCCOMB_X60_Y47_N28 ; 9       ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; bakingState:bake|currentTemp[9]~16               ; LCCOMB_X60_Y47_N24 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; bakingState:bake|secondsClock:clock4|LessThan0~5 ; LCCOMB_X49_Y52_N2  ; 29      ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
-; bakingState:bake|secondsClock:clock4|new_clk     ; FF_X45_Y52_N29     ; 33      ; Clock                     ; yes    ; Global Clock         ; GCLK10           ; --                        ;
-; bakingState:bake|timerComplete~6                 ; LCCOMB_X60_Y47_N30 ; 10      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; bakingState:bake|counter[9]~27                   ; LCCOMB_X62_Y45_N30 ; 10      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; bakingState:bake|currentTemp[7]~8                ; LCCOMB_X61_Y45_N30 ; 9       ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
+; bakingState:bake|currentTemp[9]~13               ; LCCOMB_X62_Y45_N26 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; bakingState:bake|secondsClock:clock4|LessThan0~5 ; LCCOMB_X50_Y51_N6  ; 29      ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
+; bakingState:bake|secondsClock:clock4|new_clk     ; FF_X45_Y51_N25     ; 33      ; Clock                     ; yes    ; Global Clock         ; GCLK11           ; --                        ;
+; bakingState:bake|timerComplete~6                 ; LCCOMB_X62_Y45_N22 ; 14      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
 ; clk                                              ; PIN_P11            ; 29      ; Clock                     ; yes    ; Global Clock         ; GCLK19           ; --                        ;
-; hexVal0[3]~1                                     ; LCCOMB_X61_Y49_N28 ; 16      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; hexVal2[2]~0                                     ; LCCOMB_X63_Y46_N0  ; 16      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
 ; onOff                                            ; PIN_C10            ; 21      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
-; ovenClock:ovenClk|Equal0~0                       ; LCCOMB_X62_Y45_N4  ; 6       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; ovenClock:ovenClk|hourCountVal2[0]~4             ; LCCOMB_X62_Y49_N20 ; 4       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; ovenClock:ovenClk|hourCountVal2[2]~2             ; LCCOMB_X62_Y49_N18 ; 4       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; ovenClock:ovenClk|secondsClock:clock1|new_clk    ; FF_X45_Y52_N5      ; 16      ; Clock                     ; yes    ; Global Clock         ; GCLK14           ; --                        ;
+; ovenClock:ovenClk|Equal0~0                       ; LCCOMB_X61_Y47_N0  ; 7       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; ovenClock:ovenClk|hourCountVal1[1]~0             ; LCCOMB_X61_Y49_N14 ; 4       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk    ; FF_X49_Y51_N25     ; 16      ; Clock                     ; yes    ; Global Clock         ; GCLK10           ; --                        ;
 ; pushButton[0]                                    ; PIN_B8             ; 7       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; secondsClock:clock1|new_clk                      ; FF_X45_Y52_N19     ; 38      ; Clock                     ; yes    ; Global Clock         ; GCLK11           ; --                        ;
-; tempVal[9]~8                                     ; LCCOMB_X61_Y49_N26 ; 10      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; temp_input:tmp_in|hex0[2]~2                      ; LCCOMB_X58_Y49_N24 ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; temp_input:tmp_in|hex1[0]~2                      ; LCCOMB_X58_Y49_N26 ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; temp_input:tmp_in|hex2[0]~1                      ; LCCOMB_X56_Y49_N16 ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; temp_input:tmp_in|hex3[0]~1                      ; LCCOMB_X55_Y49_N12 ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; temp_input:tmp_in|secondsClock:clock2|new_clk    ; FF_X45_Y52_N15     ; 19      ; Clock                     ; yes    ; Global Clock         ; GCLK12           ; --                        ;
-; timerVal[9]~21                                   ; LCCOMB_X61_Y49_N24 ; 10      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; secondsClock:clock1|new_clk                      ; FF_X49_Y51_N13     ; 38      ; Clock                     ; yes    ; Global Clock         ; GCLK12           ; --                        ;
+; tempVal[9]~22                                    ; LCCOMB_X63_Y46_N28 ; 10      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; temp_input:tmp_in|hex0[3]~2                      ; LCCOMB_X59_Y48_N28 ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; temp_input:tmp_in|hex1[0]~2                      ; LCCOMB_X60_Y48_N2  ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; temp_input:tmp_in|hex2[0]~1                      ; LCCOMB_X59_Y48_N8  ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; temp_input:tmp_in|hex3[0]~1                      ; LCCOMB_X60_Y48_N6  ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk    ; FF_X49_Y51_N23     ; 19      ; Clock                     ; yes    ; Global Clock         ; GCLK13           ; --                        ;
+; timerVal[9]~21                                   ; LCCOMB_X63_Y46_N26 ; 10      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
 +--------------------------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
 
 
@@ -1215,11 +1209,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------+----------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name                                          ; Location       ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +-----------------------------------------------+----------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; bakingState:bake|secondsClock:clock4|new_clk  ; FF_X45_Y52_N29 ; 33      ; 0                                    ; Global Clock         ; GCLK10           ; --                        ;
-; clk                                           ; PIN_P11        ; 29      ; 3                                    ; Global Clock         ; GCLK19           ; --                        ;
-; ovenClock:ovenClk|secondsClock:clock1|new_clk ; FF_X45_Y52_N5  ; 16      ; 0                                    ; Global Clock         ; GCLK14           ; --                        ;
-; secondsClock:clock1|new_clk                   ; FF_X45_Y52_N19 ; 38      ; 0                                    ; Global Clock         ; GCLK11           ; --                        ;
-; temp_input:tmp_in|secondsClock:clock2|new_clk ; FF_X45_Y52_N15 ; 19      ; 1                                    ; Global Clock         ; GCLK12           ; --                        ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; FF_X45_Y51_N25 ; 33      ; 1                                    ; Global Clock         ; GCLK11           ; --                        ;
+; clk                                           ; PIN_P11        ; 29      ; 2                                    ; Global Clock         ; GCLK19           ; --                        ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; FF_X49_Y51_N25 ; 16      ; 0                                    ; Global Clock         ; GCLK10           ; --                        ;
+; secondsClock:clock1|new_clk                   ; FF_X49_Y51_N13 ; 38      ; 0                                    ; Global Clock         ; GCLK12           ; --                        ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; FF_X49_Y51_N23 ; 19      ; 2                                    ; Global Clock         ; GCLK13           ; --                        ;
 +-----------------------------------------------+----------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -1228,148 +1222,159 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-------------------------+
 ; Routing Resource Type ; Usage                   ;
 +-----------------------+-------------------------+
-; Block interconnects   ; 630 / 148,641 ( < 1 % ) ;
-; C16 interconnects     ; 11 / 5,382 ( < 1 % )    ;
-; C4 interconnects      ; 300 / 106,704 ( < 1 % ) ;
-; Direct links          ; 191 / 148,641 ( < 1 % ) ;
+; Block interconnects   ; 673 / 148,641 ( < 1 % ) ;
+; C16 interconnects     ; 13 / 5,382 ( < 1 % )    ;
+; C4 interconnects      ; 324 / 106,704 ( < 1 % ) ;
+; Direct links          ; 184 / 148,641 ( < 1 % ) ;
 ; Global clocks         ; 5 / 20 ( 25 % )         ;
-; Local interconnects   ; 302 / 49,760 ( < 1 % )  ;
+; Local interconnects   ; 285 / 49,760 ( < 1 % )  ;
 ; NSLEEPs               ; 0 / 500 ( 0 % )         ;
-; R24 interconnects     ; 15 / 5,406 ( < 1 % )    ;
-; R4 interconnects      ; 295 / 147,764 ( < 1 % ) ;
+; R24 interconnects     ; 10 / 5,406 ( < 1 % )    ;
+; R4 interconnects      ; 363 / 147,764 ( < 1 % ) ;
 +-----------------------+-------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 11.98) ; Number of LABs  (Total = 51) ;
+; Number of Logic Elements  (Average = 11.75) ; Number of LABs  (Total = 53) ;
 +---------------------------------------------+------------------------------+
-; 1                                           ; 5                            ;
-; 2                                           ; 0                            ;
+; 1                                           ; 4                            ;
+; 2                                           ; 3                            ;
 ; 3                                           ; 0                            ;
-; 4                                           ; 0                            ;
+; 4                                           ; 1                            ;
 ; 5                                           ; 0                            ;
-; 6                                           ; 2                            ;
-; 7                                           ; 3                            ;
-; 8                                           ; 0                            ;
+; 6                                           ; 1                            ;
+; 7                                           ; 5                            ;
+; 8                                           ; 1                            ;
 ; 9                                           ; 1                            ;
-; 10                                          ; 1                            ;
-; 11                                          ; 3                            ;
-; 12                                          ; 4                            ;
-; 13                                          ; 7                            ;
-; 14                                          ; 7                            ;
-; 15                                          ; 4                            ;
-; 16                                          ; 14                           ;
+; 10                                          ; 3                            ;
+; 11                                          ; 0                            ;
+; 12                                          ; 3                            ;
+; 13                                          ; 1                            ;
+; 14                                          ; 1                            ;
+; 15                                          ; 6                            ;
+; 16                                          ; 23                           ;
 +---------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 0.98) ; Number of LABs  (Total = 51) ;
+; LAB-wide Signals  (Average = 1.13) ; Number of LABs  (Total = 53) ;
 +------------------------------------+------------------------------+
-; 1 Clock                            ; 19                           ;
-; 1 Clock enable                     ; 10                           ;
+; 1 Clock                            ; 22                           ;
+; 1 Clock enable                     ; 12                           ;
 ; 1 Sync. clear                      ; 5                            ;
-; 1 Sync. load                       ; 6                            ;
-; 2 Clock enables                    ; 3                            ;
-; 2 Clocks                           ; 7                            ;
+; 1 Sync. load                       ; 8                            ;
+; 2 Clock enables                    ; 5                            ;
+; 2 Clocks                           ; 8                            ;
 +------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 13.43) ; Number of LABs  (Total = 51) ;
+; Number of Signals Sourced  (Average = 13.08) ; Number of LABs  (Total = 53) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
-; 1                                            ; 5                            ;
-; 2                                            ; 0                            ;
-; 3                                            ; 0                            ;
+; 1                                            ; 4                            ;
+; 2                                            ; 2                            ;
+; 3                                            ; 2                            ;
 ; 4                                            ; 1                            ;
 ; 5                                            ; 0                            ;
-; 6                                            ; 2                            ;
-; 7                                            ; 2                            ;
-; 8                                            ; 1                            ;
-; 9                                            ; 0                            ;
+; 6                                            ; 0                            ;
+; 7                                            ; 3                            ;
+; 8                                            ; 2                            ;
+; 9                                            ; 2                            ;
 ; 10                                           ; 3                            ;
-; 11                                           ; 5                            ;
-; 12                                           ; 3                            ;
-; 13                                           ; 2                            ;
-; 14                                           ; 4                            ;
-; 15                                           ; 8                            ;
-; 16                                           ; 2                            ;
-; 17                                           ; 1                            ;
+; 11                                           ; 1                            ;
+; 12                                           ; 1                            ;
+; 13                                           ; 3                            ;
+; 14                                           ; 5                            ;
+; 15                                           ; 6                            ;
+; 16                                           ; 4                            ;
+; 17                                           ; 2                            ;
 ; 18                                           ; 2                            ;
 ; 19                                           ; 0                            ;
-; 20                                           ; 1                            ;
-; 21                                           ; 1                            ;
-; 22                                           ; 1                            ;
-; 23                                           ; 0                            ;
-; 24                                           ; 4                            ;
-; 25                                           ; 3                            ;
+; 20                                           ; 2                            ;
+; 21                                           ; 2                            ;
+; 22                                           ; 0                            ;
+; 23                                           ; 1                            ;
+; 24                                           ; 2                            ;
+; 25                                           ; 1                            ;
+; 26                                           ; 0                            ;
+; 27                                           ; 1                            ;
+; 28                                           ; 0                            ;
+; 29                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 6.53) ; Number of LABs  (Total = 51) ;
+; Number of Signals Sourced Out  (Average = 6.66) ; Number of LABs  (Total = 53) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
-; 1                                               ; 7                            ;
-; 2                                               ; 0                            ;
-; 3                                               ; 3                            ;
-; 4                                               ; 5                            ;
-; 5                                               ; 6                            ;
+; 1                                               ; 6                            ;
+; 2                                               ; 3                            ;
+; 3                                               ; 4                            ;
+; 4                                               ; 4                            ;
+; 5                                               ; 2                            ;
 ; 6                                               ; 4                            ;
-; 7                                               ; 7                            ;
+; 7                                               ; 9                            ;
 ; 8                                               ; 4                            ;
-; 9                                               ; 3                            ;
-; 10                                              ; 4                            ;
-; 11                                              ; 3                            ;
+; 9                                               ; 5                            ;
+; 10                                              ; 5                            ;
+; 11                                              ; 2                            ;
 ; 12                                              ; 3                            ;
-; 13                                              ; 2                            ;
+; 13                                              ; 0                            ;
+; 14                                              ; 0                            ;
+; 15                                              ; 1                            ;
+; 16                                              ; 1                            ;
 +-------------------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 10.84) ; Number of LABs  (Total = 51) ;
+; Number of Distinct Inputs  (Average = 11.43) ; Number of LABs  (Total = 53) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
-; 1                                            ; 2                            ;
-; 2                                            ; 1                            ;
-; 3                                            ; 2                            ;
-; 4                                            ; 3                            ;
-; 5                                            ; 4                            ;
-; 6                                            ; 1                            ;
+; 1                                            ; 0                            ;
+; 2                                            ; 6                            ;
+; 3                                            ; 1                            ;
+; 4                                            ; 4                            ;
+; 5                                            ; 1                            ;
+; 6                                            ; 4                            ;
 ; 7                                            ; 2                            ;
-; 8                                            ; 4                            ;
-; 9                                            ; 1                            ;
+; 8                                            ; 3                            ;
+; 9                                            ; 0                            ;
 ; 10                                           ; 2                            ;
-; 11                                           ; 5                            ;
-; 12                                           ; 9                            ;
-; 13                                           ; 1                            ;
-; 14                                           ; 2                            ;
-; 15                                           ; 1                            ;
-; 16                                           ; 3                            ;
+; 11                                           ; 4                            ;
+; 12                                           ; 6                            ;
+; 13                                           ; 5                            ;
+; 14                                           ; 1                            ;
+; 15                                           ; 3                            ;
+; 16                                           ; 0                            ;
 ; 17                                           ; 0                            ;
-; 18                                           ; 0                            ;
+; 18                                           ; 1                            ;
 ; 19                                           ; 2                            ;
 ; 20                                           ; 0                            ;
-; 21                                           ; 1                            ;
-; 22                                           ; 0                            ;
+; 21                                           ; 0                            ;
+; 22                                           ; 1                            ;
 ; 23                                           ; 0                            ;
 ; 24                                           ; 1                            ;
-; 25                                           ; 2                            ;
+; 25                                           ; 1                            ;
 ; 26                                           ; 0                            ;
 ; 27                                           ; 0                            ;
-; 28                                           ; 0                            ;
-; 29                                           ; 0                            ;
+; 28                                           ; 1                            ;
+; 29                                           ; 1                            ;
 ; 30                                           ; 1                            ;
+; 31                                           ; 0                            ;
+; 32                                           ; 0                            ;
+; 33                                           ; 0                            ;
+; 34                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
@@ -1524,14 +1529,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------+--------+
 
 
-+------------------------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Summary                                                  ;
-+----------------------------------------------+-----------------------------+-------------------+
-; Source Clock(s)                              ; Destination Clock(s)        ; Delay Added in ns ;
-+----------------------------------------------+-----------------------------+-------------------+
-; clk                                          ; clk                         ; 16.9              ;
-; bakingState:bake|secondsClock:clock4|new_clk ; secondsClock:clock1|new_clk ; 1.5               ;
-+----------------------------------------------+-----------------------------+-------------------+
++-------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Summary                                                   ;
++-----------------------------------------------+-----------------------------+-------------------+
+; Source Clock(s)                               ; Destination Clock(s)        ; Delay Added in ns ;
++-----------------------------------------------+-----------------------------+-------------------+
+; clk                                           ; clk                         ; 18.0              ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; secondsClock:clock1|new_clk ; 6.3               ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; secondsClock:clock1|new_clk ; 1.8               ;
++-----------------------------------------------+-----------------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
@@ -1541,19 +1547,39 @@ This will disable optimization of problematic paths and expose them for further 
 +-----------------------------------------------+-----------------------------------------------+-------------------+
 ; Source Register                               ; Destination Register                          ; Delay Added in ns ;
 +-----------------------------------------------+-----------------------------------------------+-------------------+
+; bakingState:bake|secondsClock:clock4|new_clk  ; bakingState:bake|secondsClock:clock4|new_clk  ; 4.501             ;
 ; temp_input:tmp_in|secondsClock:clock2|new_clk ; temp_input:tmp_in|secondsClock:clock2|new_clk ; 4.501             ;
 ; ovenClock:ovenClk|secondsClock:clock1|new_clk ; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 4.501             ;
 ; secondsClock:clock1|new_clk                   ; secondsClock:clock1|new_clk                   ; 4.501             ;
-; bakingState:bake|secondsClock:clock4|new_clk  ; bakingState:bake|secondsClock:clock4|new_clk  ; 3.438             ;
-; bakingState:bake|tempVal2[3]                  ; hexVal2[3]                                    ; 0.292             ;
-; bakingState:bake|tempVal2[2]                  ; hexVal2[2]                                    ; 0.285             ;
-; bakingState:bake|tempVal2[1]                  ; hexVal2[1]                                    ; 0.285             ;
-; bakingState:bake|tempVal2[0]                  ; hexVal2[0]                                    ; 0.285             ;
-; bakingState:bake|tempVal0[0]                  ; hexVal0[0]                                    ; 0.285             ;
-; bakingState:bake|tempVal0[2]                  ; hexVal0[2]                                    ; 0.070             ;
-; temp_input:tmp_in|state.011                   ; temp_input:tmp_in|state.100                   ; 0.022             ;
+; bakingState:bake|tempVal2[3]                  ; hexVal2[3]                                    ; 0.804             ;
+; bakingState:bake|tempVal2[2]                  ; hexVal2[2]                                    ; 0.797             ;
+; bakingState:bake|tempVal2[1]                  ; hexVal2[1]                                    ; 0.797             ;
+; bakingState:bake|tempVal2[0]                  ; hexVal2[0]                                    ; 0.797             ;
+; bakingState:bake|tempVal0[3]                  ; hexVal0[3]                                    ; 0.618             ;
+; bakingState:bake|tempVal0[1]                  ; hexVal0[1]                                    ; 0.611             ;
+; bakingState:bake|tempVal0[2]                  ; hexVal0[2]                                    ; 0.580             ;
+; bakingState:bake|tempVal0[0]                  ; hexVal0[0]                                    ; 0.574             ;
+; temp_input:tmp_in|hex3[0]                     ; timerVal[9]                                   ; 0.449             ;
+; bakingState:bake|tempVal1[3]                  ; hexVal1[3]                                    ; 0.246             ;
+; bakingState:bake|tempVal1[2]                  ; hexVal1[2]                                    ; 0.239             ;
+; bakingState:bake|tempVal1[1]                  ; hexVal1[1]                                    ; 0.239             ;
+; ovenClock:ovenClk|hourCountVal2[3]            ; hexVal3[3]                                    ; 0.173             ;
+; ovenClock:ovenClk|hourCountVal2[2]            ; hexVal3[2]                                    ; 0.173             ;
+; ovenClock:ovenClk|hourCountVal2[1]            ; hexVal3[1]                                    ; 0.173             ;
+; ovenClock:ovenClk|minuteCountVal2[2]          ; hexVal1[2]                                    ; 0.173             ;
+; ovenClock:ovenClk|minuteCountVal2[1]          ; hexVal1[1]                                    ; 0.173             ;
+; ovenClock:ovenClk|minuteCountVal1[2]          ; hexVal0[2]                                    ; 0.173             ;
+; ovenClock:ovenClk|minuteCountVal1[3]          ; hexVal0[3]                                    ; 0.173             ;
+; ovenClock:ovenClk|minuteCountVal1[1]          ; hexVal0[1]                                    ; 0.173             ;
+; ovenClock:ovenClk|minuteCountVal1[0]          ; hexVal0[0]                                    ; 0.173             ;
+; temp_input:tmp_in|hex3[1]                     ; hexVal3[1]                                    ; 0.144             ;
+; ovenClock:ovenClk|hourCountVal1[2]            ; hexVal2[2]                                    ; 0.135             ;
+; ovenClock:ovenClk|hourCountVal1[3]            ; hexVal2[3]                                    ; 0.034             ;
+; ovenClock:ovenClk|hourCountVal1[1]            ; hexVal2[1]                                    ; 0.034             ;
+; temp_input:tmp_in|state.011                   ; temp_input:tmp_in|state.100                   ; 0.027             ;
+; temp_input:tmp_in|hex3[2]                     ; hexVal3[2]                                    ; 0.018             ;
 +-----------------------------------------------+-----------------------------------------------+-------------------+
-Note: This table only shows the top 11 path(s) that have the largest delay added for hold.
+Note: This table only shows the top 31 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
@@ -1639,19 +1665,19 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.30 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.34 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file E:/Advanced Digital Circuit Design/OvenSimulator/output_files/FinalProject.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 5929 megabytes
-    Info: Processing ended: Sat Aug 14 22:06:13 2021
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:11
+    Info: Peak virtual memory: 5933 megabytes
+    Info: Processing ended: Mon Aug 16 14:16:00 2021
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:13
 
 
 +----------------------------+
