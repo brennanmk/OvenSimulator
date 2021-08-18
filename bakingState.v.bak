@@ -1,0 +1,15 @@
+module bakingState(input timer, timerComplete, [9:0]predefinedTemp, output currentTemp);
+
+	always @ (posedge clock) begin 
+		if(timerComplete != 1) begin
+			if (currentTemp < predefinedTemp) begin
+				currentTemp + 2;
+			end else if (currentTemp > predefinedTemp) begin
+				currentTemp = predefinedTemp;
+			
+			end
+		end
+	end
+		
+		
+endmodule 

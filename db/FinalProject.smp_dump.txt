@@ -1,0 +1,15 @@
+
+State Machine - |FinalProject|bakingState:bake|timerComplete
+Name timerComplete.01 
+timerComplete.00 0 
+timerComplete.01 1 
+
+State Machine - |FinalProject|temp_input:tmp_in|state
+Name state.110 state.101 state.100 state.011 state.010 state.001 state.000 
+state.000 0 0 0 0 0 0 0 
+state.001 0 0 0 0 0 1 1 
+state.010 0 0 0 0 1 0 1 
+state.011 0 0 0 1 0 0 1 
+state.100 0 0 1 0 0 0 1 
+state.101 0 1 0 0 0 0 1 
+state.110 1 0 0 0 0 0 1 

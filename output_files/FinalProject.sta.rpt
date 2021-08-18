@@ -1,5 +1,5 @@
 Timing Analyzer report for FinalProject
-Fri Aug 13 19:57:55 2021
+Mon Aug 16 19:03:58 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -36,11 +36,17 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  28. Signal Integrity Metrics (Slow 1200mv 0c Model)
  29. Signal Integrity Metrics (Slow 1200mv 85c Model)
  30. Signal Integrity Metrics (Fast 1200mv 0c Model)
- 31. Clock Transfers
- 32. Report TCCS
- 33. Report RSKM
- 34. Unconstrained Paths Summary
- 35. Timing Analyzer Messages
+ 31. Setup Transfers
+ 32. Hold Transfers
+ 33. Report TCCS
+ 34. Report RSKM
+ 35. Unconstrained Paths Summary
+ 36. Clock Status Summary
+ 37. Unconstrained Input Ports
+ 38. Unconstrained Output Ports
+ 39. Unconstrained Input Ports
+ 40. Unconstrained Output Ports
+ 41. Timing Analyzer Messages
 
 
 
@@ -86,37 +92,66 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
-; Average used               ; 1.04        ;
+; Average used               ; 1.42        ;
 ; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;   0.6%      ;
+;     Processors 2-8         ;   6.0%      ;
 +----------------------------+-------------+
 
 
-----------
-; Clocks ;
-----------
-No clocks to report.
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                                                       ;
++-----------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------------------------------+
+; Clock Name                                    ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                                           ;
++-----------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------------------------------+
+; bakingState:bake|secondsClock:clock4|new_clk  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { bakingState:bake|secondsClock:clock4|new_clk }  ;
+; clk                                           ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                                           ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { ovenClock:ovenClk|secondsClock:clock1|new_clk } ;
+; secondsClock:clock1|new_clk                   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { secondsClock:clock1|new_clk }                   ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { temp_input:tmp_in|secondsClock:clock2|new_clk } ;
++-----------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------------------------------+
 
 
---------------------------------------
-; Slow 1200mV 85C Model Fmax Summary ;
---------------------------------------
-No paths to report.
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                                                           ;
++------------+-----------------+-----------------------------------------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name                                    ; Note                                                          ;
++------------+-----------------+-----------------------------------------------+---------------------------------------------------------------+
+; 32.1 MHz   ; 32.1 MHz        ; bakingState:bake|secondsClock:clock4|new_clk  ;                                                               ;
+; 254.32 MHz ; 250.0 MHz       ; clk                                           ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 311.92 MHz ; 311.92 MHz      ; ovenClock:ovenClk|secondsClock:clock1|new_clk ;                                                               ;
+; 348.68 MHz ; 348.68 MHz      ; temp_input:tmp_in|secondsClock:clock2|new_clk ;                                                               ;
+; 366.7 MHz  ; 366.7 MHz       ; secondsClock:clock1|new_clk                   ;                                                               ;
++------------+-----------------+-----------------------------------------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
----------------------------------------
-; Slow 1200mV 85C Model Setup Summary ;
----------------------------------------
-No paths to report.
++-------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup Summary                                     ;
++-----------------------------------------------+---------+---------------+
+; Clock                                         ; Slack   ; End Point TNS ;
++-----------------------------------------------+---------+---------------+
+; bakingState:bake|secondsClock:clock4|new_clk  ; -31.128 ; -555.977      ;
+; secondsClock:clock1|new_clk                   ; -4.647  ; -89.916       ;
+; clk                                           ; -2.932  ; -78.297       ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; -2.206  ; -25.487       ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; -1.868  ; -31.276       ;
++-----------------------------------------------+---------+---------------+
 
 
---------------------------------------
-; Slow 1200mV 85C Model Hold Summary ;
---------------------------------------
-No paths to report.
++-----------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold Summary                                    ;
++-----------------------------------------------+-------+---------------+
+; Clock                                         ; Slack ; End Point TNS ;
++-----------------------------------------------+-------+---------------+
+; bakingState:bake|secondsClock:clock4|new_clk  ; 0.331 ; 0.000         ;
+; secondsClock:clock1|new_clk                   ; 0.347 ; 0.000         ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; 0.348 ; 0.000         ;
+; clk                                           ; 0.426 ; 0.000         ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 0.932 ; 0.000         ;
++-----------------------------------------------+-------+---------------+
 
 
 ------------------------------------------
@@ -131,10 +166,17 @@ No paths to report.
 No paths to report.
 
 
------------------------------------------------------
-; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
------------------------------------------------------
-No paths to report.
++------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary                      ;
++-----------------------------------------------+--------+---------------+
+; Clock                                         ; Slack  ; End Point TNS ;
++-----------------------------------------------+--------+---------------+
+; clk                                           ; -3.000 ; -43.687       ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; -1.403 ; -53.314       ;
+; secondsClock:clock1|new_clk                   ; -1.403 ; -53.314       ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; -1.403 ; -30.866       ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; -1.403 ; -22.448       ;
++-----------------------------------------------+--------+---------------+
 
 
 -----------------------------------------------
@@ -143,22 +185,44 @@ No paths to report.
 No synchronizer chains to report.
 
 
--------------------------------------
-; Slow 1200mV 0C Model Fmax Summary ;
--------------------------------------
-No paths to report.
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                                                            ;
++------------+-----------------+-----------------------------------------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name                                    ; Note                                                          ;
++------------+-----------------+-----------------------------------------------+---------------------------------------------------------------+
+; 35.37 MHz  ; 35.37 MHz       ; bakingState:bake|secondsClock:clock4|new_clk  ;                                                               ;
+; 274.35 MHz ; 250.0 MHz       ; clk                                           ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 338.64 MHz ; 338.64 MHz      ; ovenClock:ovenClk|secondsClock:clock1|new_clk ;                                                               ;
+; 379.94 MHz ; 379.94 MHz      ; temp_input:tmp_in|secondsClock:clock2|new_clk ;                                                               ;
+; 400.16 MHz ; 400.16 MHz      ; secondsClock:clock1|new_clk                   ;                                                               ;
++------------+-----------------+-----------------------------------------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
---------------------------------------
-; Slow 1200mV 0C Model Setup Summary ;
---------------------------------------
-No paths to report.
++-------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup Summary                                      ;
++-----------------------------------------------+---------+---------------+
+; Clock                                         ; Slack   ; End Point TNS ;
++-----------------------------------------------+---------+---------------+
+; bakingState:bake|secondsClock:clock4|new_clk  ; -28.152 ; -504.801      ;
+; secondsClock:clock1|new_clk                   ; -4.152  ; -79.139       ;
+; clk                                           ; -2.645  ; -70.338       ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; -1.953  ; -22.052       ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; -1.632  ; -26.985       ;
++-----------------------------------------------+---------+---------------+
 
 
--------------------------------------
-; Slow 1200mV 0C Model Hold Summary ;
--------------------------------------
-No paths to report.
++-----------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold Summary                                     ;
++-----------------------------------------------+-------+---------------+
+; Clock                                         ; Slack ; End Point TNS ;
++-----------------------------------------------+-------+---------------+
+; bakingState:bake|secondsClock:clock4|new_clk  ; 0.296 ; 0.000         ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; 0.311 ; 0.000         ;
+; secondsClock:clock1|new_clk                   ; 0.312 ; 0.000         ;
+; clk                                           ; 0.392 ; 0.000         ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 0.852 ; 0.000         ;
++-----------------------------------------------+-------+---------------+
 
 
 -----------------------------------------
@@ -173,10 +237,17 @@ No paths to report.
 No paths to report.
 
 
-----------------------------------------------------
-; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
-----------------------------------------------------
-No paths to report.
++------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary                       ;
++-----------------------------------------------+--------+---------------+
+; Clock                                         ; Slack  ; End Point TNS ;
++-----------------------------------------------+--------+---------------+
+; clk                                           ; -3.000 ; -43.687       ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; -1.403 ; -53.314       ;
+; secondsClock:clock1|new_clk                   ; -1.403 ; -53.314       ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; -1.403 ; -30.866       ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; -1.403 ; -22.448       ;
++-----------------------------------------------+--------+---------------+
 
 
 ----------------------------------------------
@@ -185,16 +256,30 @@ No paths to report.
 No synchronizer chains to report.
 
 
---------------------------------------
-; Fast 1200mV 0C Model Setup Summary ;
---------------------------------------
-No paths to report.
++-------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup Summary                                      ;
++-----------------------------------------------+---------+---------------+
+; Clock                                         ; Slack   ; End Point TNS ;
++-----------------------------------------------+---------+---------------+
+; bakingState:bake|secondsClock:clock4|new_clk  ; -12.281 ; -223.445      ;
+; secondsClock:clock1|new_clk                   ; -1.262  ; -17.781       ;
+; clk                                           ; -0.642  ; -15.472       ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; -0.449  ; -3.216        ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; -0.259  ; -2.695        ;
++-----------------------------------------------+---------+---------------+
 
 
--------------------------------------
-; Fast 1200mV 0C Model Hold Summary ;
--------------------------------------
-No paths to report.
++-----------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold Summary                                     ;
++-----------------------------------------------+-------+---------------+
+; Clock                                         ; Slack ; End Point TNS ;
++-----------------------------------------------+-------+---------------+
+; bakingState:bake|secondsClock:clock4|new_clk  ; 0.146 ; 0.000         ;
+; secondsClock:clock1|new_clk                   ; 0.151 ; 0.000         ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; 0.151 ; 0.000         ;
+; clk                                           ; 0.170 ; 0.000         ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 0.370 ; 0.000         ;
++-----------------------------------------------+-------+---------------+
 
 
 -----------------------------------------
@@ -209,10 +294,17 @@ No paths to report.
 No paths to report.
 
 
-----------------------------------------------------
-; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
-----------------------------------------------------
-No paths to report.
++------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary                       ;
++-----------------------------------------------+--------+---------------+
+; Clock                                         ; Slack  ; End Point TNS ;
++-----------------------------------------------+--------+---------------+
+; clk                                           ; -3.000 ; -32.962       ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; -1.000 ; -38.000       ;
+; secondsClock:clock1|new_clk                   ; -1.000 ; -38.000       ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; -1.000 ; -22.000       ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; -1.000 ; -16.000       ;
++-----------------------------------------------+--------+---------------+
 
 
 ----------------------------------------------
@@ -221,14 +313,24 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+----------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                        ;
-+------------------+-------+------+----------+---------+---------------------+
-; Clock            ; Setup ; Hold ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------+-------+------+----------+---------+---------------------+
-; Worst-case Slack ; N/A   ; N/A  ; N/A      ; N/A     ; N/A                 ;
-; Design-wide TNS  ; 0.0   ; 0.0  ; 0.0      ; 0.0     ; 0.0                 ;
-+------------------+-------+------+----------+---------+---------------------+
++--------------------------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                                          ;
++------------------------------------------------+----------+-------+----------+---------+---------------------+
+; Clock                                          ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------------------------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack                               ; -31.128  ; 0.146 ; N/A      ; N/A     ; -3.000              ;
+;  bakingState:bake|secondsClock:clock4|new_clk  ; -31.128  ; 0.146 ; N/A      ; N/A     ; -1.403              ;
+;  clk                                           ; -2.932   ; 0.170 ; N/A      ; N/A     ; -3.000              ;
+;  ovenClock:ovenClk|secondsClock:clock1|new_clk ; -2.206   ; 0.370 ; N/A      ; N/A     ; -1.403              ;
+;  secondsClock:clock1|new_clk                   ; -4.647   ; 0.151 ; N/A      ; N/A     ; -1.403              ;
+;  temp_input:tmp_in|secondsClock:clock2|new_clk ; -1.868   ; 0.151 ; N/A      ; N/A     ; -1.403              ;
+; Design-wide TNS                                ; -780.953 ; 0.0   ; 0.0      ; 0.0     ; -203.629            ;
+;  bakingState:bake|secondsClock:clock4|new_clk  ; -555.977 ; 0.000 ; N/A      ; N/A     ; -53.314             ;
+;  clk                                           ; -78.297  ; 0.000 ; N/A      ; N/A     ; -43.687             ;
+;  ovenClock:ovenClk|secondsClock:clock1|new_clk ; -25.487  ; 0.000 ; N/A      ; N/A     ; -22.448             ;
+;  secondsClock:clock1|new_clk                   ; -89.916  ; 0.000 ; N/A      ; N/A     ; -53.314             ;
+;  temp_input:tmp_in|secondsClock:clock2|new_clk ; -31.276  ; 0.000 ; N/A      ; N/A     ; -30.866             ;
++------------------------------------------------+----------+-------+----------+---------+---------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -278,6 +380,7 @@ No synchronizer chains to report.
 ; Hex5[2]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; Hex5[1]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; Hex5[0]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; readyLed     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; ~ALTERA_TDO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 +--------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
 
@@ -287,13 +390,14 @@ No synchronizer chains to report.
 +---------------------+-----------------------+-----------------+-----------------+
 ; Pin                 ; I/O Standard          ; 10-90 Rise Time ; 90-10 Fall Time ;
 +---------------------+-----------------------+-----------------+-----------------+
-; in[0]               ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; in[1]               ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; in[2]               ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; in[3]               ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; pushButton          ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; clk                 ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; onOff               ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; clk                 ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; in[0]               ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; in[2]               ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; pushButton[1]       ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; in[1]               ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; in[3]               ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; pushButton[0]       ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TMS~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TCK~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TDI~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
@@ -351,6 +455,7 @@ No synchronizer chains to report.
 ; Hex5[2]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; Hex5[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; Hex5[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; readyLed     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; ~ALTERA_TDO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.39e-08 V                   ; 2.39 V              ; -0.0409 V           ; 0.21 V                               ; 0.121 V                              ; 4.7e-10 s                   ; 5.93e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.39e-08 V                  ; 2.39 V             ; -0.0409 V          ; 0.21 V                              ; 0.121 V                             ; 4.7e-10 s                  ; 5.93e-10 s                 ; No                        ; Yes                       ;
 +--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
@@ -402,6 +507,7 @@ No synchronizer chains to report.
 ; Hex5[2]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
 ; Hex5[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
 ; Hex5[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
+; readyLed     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
 ; ~ALTERA_TDO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.97e-06 V                   ; 2.36 V              ; -0.0173 V           ; 0.144 V                              ; 0.094 V                              ; 6.44e-10 s                  ; 7.2e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.97e-06 V                  ; 2.36 V             ; -0.0173 V          ; 0.144 V                             ; 0.094 V                             ; 6.44e-10 s                 ; 7.2e-10 s                  ; No                        ; Yes                       ;
 +--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
@@ -453,14 +559,53 @@ No synchronizer chains to report.
 ; Hex5[2]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; Hex5[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; Hex5[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; readyLed     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; ~ALTERA_TDO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.68e-07 V                   ; 2.73 V              ; -0.0395 V           ; 0.361 V                              ; 0.109 V                              ; 3.1e-10 s                   ; 4.41e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.68e-07 V                  ; 2.73 V             ; -0.0395 V          ; 0.361 V                             ; 0.109 V                             ; 3.1e-10 s                  ; 4.41e-10 s                 ; No                        ; Yes                       ;
 +--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
 
--------------------
-; Clock Transfers ;
--------------------
-Nothing to report.
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                                                                   ;
++-----------------------------------------------+-----------------------------------------------+--------------+--------------+----------+----------+
+; From Clock                                    ; To Clock                                      ; RR Paths     ; FR Paths     ; RF Paths ; FF Paths ;
++-----------------------------------------------+-----------------------------------------------+--------------+--------------+----------+----------+
+; bakingState:bake|secondsClock:clock4|new_clk  ; bakingState:bake|secondsClock:clock4|new_clk  ; > 2147483647 ; 0            ; 0        ; 0        ;
+; secondsClock:clock1|new_clk                   ; bakingState:bake|secondsClock:clock4|new_clk  ; 0            ; > 2147483647 ; 0        ; 0        ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; clk                                           ; 1            ; 1            ; 0        ; 0        ;
+; clk                                           ; clk                                           ; 876          ; 0            ; 0        ; 0        ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; clk                                           ; 1            ; 1            ; 0        ; 0        ;
+; secondsClock:clock1|new_clk                   ; clk                                           ; 1            ; 1            ; 0        ; 0        ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; clk                                           ; 1            ; 1            ; 0        ; 0        ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 143          ; 0            ; 0        ; 0        ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; secondsClock:clock1|new_clk                   ; 0            ; 0            ; 16       ; 0        ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; secondsClock:clock1|new_clk                   ; 0            ; 0            ; 16       ; 0        ;
+; secondsClock:clock1|new_clk                   ; secondsClock:clock1|new_clk                   ; 0            ; 0            ; 0        ; 96       ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; secondsClock:clock1|new_clk                   ; 0            ; 0            ; 0        ; 2209     ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; temp_input:tmp_in|secondsClock:clock2|new_clk ; 0            ; 0            ; 0        ; 159      ;
++-----------------------------------------------+-----------------------------------------------+--------------+--------------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                                                                    ;
++-----------------------------------------------+-----------------------------------------------+--------------+--------------+----------+----------+
+; From Clock                                    ; To Clock                                      ; RR Paths     ; FR Paths     ; RF Paths ; FF Paths ;
++-----------------------------------------------+-----------------------------------------------+--------------+--------------+----------+----------+
+; bakingState:bake|secondsClock:clock4|new_clk  ; bakingState:bake|secondsClock:clock4|new_clk  ; > 2147483647 ; 0            ; 0        ; 0        ;
+; secondsClock:clock1|new_clk                   ; bakingState:bake|secondsClock:clock4|new_clk  ; 0            ; > 2147483647 ; 0        ; 0        ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; clk                                           ; 1            ; 1            ; 0        ; 0        ;
+; clk                                           ; clk                                           ; 876          ; 0            ; 0        ; 0        ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; clk                                           ; 1            ; 1            ; 0        ; 0        ;
+; secondsClock:clock1|new_clk                   ; clk                                           ; 1            ; 1            ; 0        ; 0        ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; clk                                           ; 1            ; 1            ; 0        ; 0        ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; ovenClock:ovenClk|secondsClock:clock1|new_clk ; 143          ; 0            ; 0        ; 0        ;
+; bakingState:bake|secondsClock:clock4|new_clk  ; secondsClock:clock1|new_clk                   ; 0            ; 0            ; 16       ; 0        ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; secondsClock:clock1|new_clk                   ; 0            ; 0            ; 16       ; 0        ;
+; secondsClock:clock1|new_clk                   ; secondsClock:clock1|new_clk                   ; 0            ; 0            ; 0        ; 96       ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; secondsClock:clock1|new_clk                   ; 0            ; 0            ; 0        ; 2209     ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; temp_input:tmp_in|secondsClock:clock2|new_clk ; 0            ; 0            ; 0        ; 159      ;
++-----------------------------------------------+-----------------------------------------------+--------------+--------------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
 ---------------
@@ -482,11 +627,128 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 0     ; 0    ;
-; Unconstrained Input Port Paths  ; 0     ; 0    ;
-; Unconstrained Output Ports      ; 0     ; 0    ;
-; Unconstrained Output Port Paths ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 7     ; 7    ;
+; Unconstrained Input Port Paths  ; 155   ; 155  ;
+; Unconstrained Output Ports      ; 29    ; 29   ;
+; Unconstrained Output Port Paths ; 113   ; 113  ;
 +---------------------------------+-------+------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Clock Status Summary                                                                                               ;
++-----------------------------------------------+-----------------------------------------------+------+-------------+
+; Target                                        ; Clock                                         ; Type ; Status      ;
++-----------------------------------------------+-----------------------------------------------+------+-------------+
+; bakingState:bake|secondsClock:clock4|new_clk  ; bakingState:bake|secondsClock:clock4|new_clk  ; Base ; Constrained ;
+; clk                                           ; clk                                           ; Base ; Constrained ;
+; ovenClock:ovenClk|secondsClock:clock1|new_clk ; ovenClock:ovenClk|secondsClock:clock1|new_clk ; Base ; Constrained ;
+; secondsClock:clock1|new_clk                   ; secondsClock:clock1|new_clk                   ; Base ; Constrained ;
+; temp_input:tmp_in|secondsClock:clock2|new_clk ; temp_input:tmp_in|secondsClock:clock2|new_clk ; Base ; Constrained ;
++-----------------------------------------------+-----------------------------------------------+------+-------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                            ;
++---------------+--------------------------------------------------------------------------------------+
+; Input Port    ; Comment                                                                              ;
++---------------+--------------------------------------------------------------------------------------+
+; in[0]         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; in[1]         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; in[2]         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; in[3]         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; onOff         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; pushButton[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; pushButton[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++---------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; Hex0[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex0[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex0[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex0[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex0[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex0[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex0[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex1[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex1[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex1[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex1[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex1[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex1[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex1[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex2[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex2[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex2[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex2[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex2[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex2[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex2[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex3[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex3[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex3[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex3[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex3[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex3[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex3[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; readyLed    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                            ;
++---------------+--------------------------------------------------------------------------------------+
+; Input Port    ; Comment                                                                              ;
++---------------+--------------------------------------------------------------------------------------+
+; in[0]         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; in[1]         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; in[2]         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; in[3]         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; onOff         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; pushButton[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; pushButton[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++---------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; Hex0[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex0[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex0[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex0[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex0[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex0[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex0[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex1[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex1[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex1[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex1[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex1[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex1[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex1[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex2[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex2[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex2[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex2[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex2[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex2[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex2[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex3[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex3[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex3[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex3[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex3[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex3[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Hex3[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; readyLed    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
 
 
 +--------------------------+
@@ -495,7 +757,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Aug 13 19:57:53 2021
+    Info: Processing started: Mon Aug 16 19:03:56 2021
 Info: Command: quartus_sta FinalProject -c FinalProject
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -504,49 +766,110 @@ Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'FinalProject.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name secondsClock:clock1|new_clk secondsClock:clock1|new_clk
+    Info (332105): create_clock -period 1.000 -name clk clk
+    Info (332105): create_clock -period 1.000 -name ovenClock:ovenClk|secondsClock:clock1|new_clk ovenClock:ovenClk|secondsClock:clock1|new_clk
+    Info (332105): create_clock -period 1.000 -name bakingState:bake|secondsClock:clock4|new_clk bakingState:bake|secondsClock:clock4|new_clk
+    Info (332105): create_clock -period 1.000 -name temp_input:tmp_in|secondsClock:clock2|new_clk temp_input:tmp_in|secondsClock:clock2|new_clk
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
-Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
-Info (332159): No clocks to report
 Info: Analyzing Slow 1200mV 85C Model
-Info (332140): No fmax paths to report
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -31.128
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -31.128            -555.977 bakingState:bake|secondsClock:clock4|new_clk 
+    Info (332119):    -4.647             -89.916 secondsClock:clock1|new_clk 
+    Info (332119):    -2.932             -78.297 clk 
+    Info (332119):    -2.206             -25.487 ovenClock:ovenClk|secondsClock:clock1|new_clk 
+    Info (332119):    -1.868             -31.276 temp_input:tmp_in|secondsClock:clock2|new_clk 
+Info (332146): Worst-case hold slack is 0.331
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.331               0.000 bakingState:bake|secondsClock:clock4|new_clk 
+    Info (332119):     0.347               0.000 secondsClock:clock1|new_clk 
+    Info (332119):     0.348               0.000 temp_input:tmp_in|secondsClock:clock2|new_clk 
+    Info (332119):     0.426               0.000 clk 
+    Info (332119):     0.932               0.000 ovenClock:ovenClk|secondsClock:clock1|new_clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332140): No Minimum Pulse Width paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -43.687 clk 
+    Info (332119):    -1.403             -53.314 bakingState:bake|secondsClock:clock4|new_clk 
+    Info (332119):    -1.403             -53.314 secondsClock:clock1|new_clk 
+    Info (332119):    -1.403             -30.866 temp_input:tmp_in|secondsClock:clock2|new_clk 
+    Info (332119):    -1.403             -22.448 ovenClock:ovenClk|secondsClock:clock1|new_clk 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
-Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
-Info (332140): No fmax paths to report
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -28.152
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -28.152            -504.801 bakingState:bake|secondsClock:clock4|new_clk 
+    Info (332119):    -4.152             -79.139 secondsClock:clock1|new_clk 
+    Info (332119):    -2.645             -70.338 clk 
+    Info (332119):    -1.953             -22.052 ovenClock:ovenClk|secondsClock:clock1|new_clk 
+    Info (332119):    -1.632             -26.985 temp_input:tmp_in|secondsClock:clock2|new_clk 
+Info (332146): Worst-case hold slack is 0.296
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.296               0.000 bakingState:bake|secondsClock:clock4|new_clk 
+    Info (332119):     0.311               0.000 temp_input:tmp_in|secondsClock:clock2|new_clk 
+    Info (332119):     0.312               0.000 secondsClock:clock1|new_clk 
+    Info (332119):     0.392               0.000 clk 
+    Info (332119):     0.852               0.000 ovenClock:ovenClk|secondsClock:clock1|new_clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332140): No Minimum Pulse Width paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -43.687 clk 
+    Info (332119):    -1.403             -53.314 bakingState:bake|secondsClock:clock4|new_clk 
+    Info (332119):    -1.403             -53.314 secondsClock:clock1|new_clk 
+    Info (332119):    -1.403             -30.866 temp_input:tmp_in|secondsClock:clock2|new_clk 
+    Info (332119):    -1.403             -22.448 ovenClock:ovenClk|secondsClock:clock1|new_clk 
 Info: Analyzing Fast 1200mV 0C Model
-Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
-Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -12.281
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -12.281            -223.445 bakingState:bake|secondsClock:clock4|new_clk 
+    Info (332119):    -1.262             -17.781 secondsClock:clock1|new_clk 
+    Info (332119):    -0.642             -15.472 clk 
+    Info (332119):    -0.449              -3.216 ovenClock:ovenClk|secondsClock:clock1|new_clk 
+    Info (332119):    -0.259              -2.695 temp_input:tmp_in|secondsClock:clock2|new_clk 
+Info (332146): Worst-case hold slack is 0.146
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.146               0.000 bakingState:bake|secondsClock:clock4|new_clk 
+    Info (332119):     0.151               0.000 secondsClock:clock1|new_clk 
+    Info (332119):     0.151               0.000 temp_input:tmp_in|secondsClock:clock2|new_clk 
+    Info (332119):     0.170               0.000 clk 
+    Info (332119):     0.370               0.000 ovenClock:ovenClk|secondsClock:clock1|new_clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332140): No Minimum Pulse Width paths to report
-Info (332101): Design is fully constrained for setup requirements
-Info (332101): Design is fully constrained for hold requirements
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -32.962 clk 
+    Info (332119):    -1.000             -38.000 bakingState:bake|secondsClock:clock4|new_clk 
+    Info (332119):    -1.000             -38.000 secondsClock:clock1|new_clk 
+    Info (332119):    -1.000             -22.000 temp_input:tmp_in|secondsClock:clock2|new_clk 
+    Info (332119):    -1.000             -16.000 ovenClock:ovenClk|secondsClock:clock1|new_clk 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4873 megabytes
-    Info: Processing ended: Fri Aug 13 19:57:55 2021
+    Info: Peak virtual memory: 4884 megabytes
+    Info: Processing ended: Mon Aug 16 19:03:58 2021
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
 
 
